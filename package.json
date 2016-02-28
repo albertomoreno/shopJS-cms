@@ -1,0 +1,39 @@
+{
+  "name": "shopJS",
+  "description": "Shop CMS JavaScript",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/albertomoreno/shopJS-cms.git"
+  },
+  "author": "Alberto Moreno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/albertomoreno/shopJS-cms/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-cache": "^0.3.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.5",
+    "rimraf": "^2.4.3",
+    "run-sequence": "^1.1.4",
+    "supervisor": "^0.9.1"
+  },
+  "dependencies": {
+    "angular": "^1.4.8",
+    "bootstrap-sass": "^3.3.5",
+    "express": "^4.13.3",
+    "font-awesome": "^4.4.0",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "mongodb": "^2.0.43",
+    "nunjucks": "^2.0.0"
+  }
+}
