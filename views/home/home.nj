@@ -1,3 +1,9 @@
+{% extends "views/base.nj" %}
 
+{% block tittle %}ShopJS{% endblock %}
+
+{% block content %}
 
 <p>Hola, mundo</p>
+
+{% endblock %}

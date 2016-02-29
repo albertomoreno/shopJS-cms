@@ -1,0 +1,9 @@
+
+// Google Maps doesn't play nicely with Bootstrap; restore original box sizing
+// inside the widget
+.google-map,
+.google-map *,
+.google-map *:before,
+.google-map *:after {
+  box-sizing: content-box;
+}

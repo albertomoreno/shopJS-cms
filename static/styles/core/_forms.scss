@@ -1,0 +1,59 @@
+
+.form-control, .input-group-addon {
+  border-radius: 1px;
+}
+
+.form-control-static {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.help-block-inline {
+  margin-top: -4px;
+  margin-bottom: 6px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+
+  @media (min-width: $screen-sm) {
+    margin-bottom: 25px;
+  }
+
+  &.no-margin {
+    margin: 0;
+  }
+}
+
+form {
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.group-no-margin .form-group {
+  margin: 0;
+}
+
+.form-submit.multiple {
+  .form-submit {
+    margin-top: 0;
+    float: left;
+  }
+
+  .btn {
+    margin-right: 25px;
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-submit {
+  margin-top: 30px;
+
+  @media (min-width: $screen-sm) {
+    margin-top: 50px;
+  }
+}
