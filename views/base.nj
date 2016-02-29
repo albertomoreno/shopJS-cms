@@ -68,4 +68,10 @@
 
   <script src="/tmp/vendor/jquery.min.js"></script>
   <script src="/tmp/vendor/bootstrap.min.js"></script>
+
+  <script>
+  $('.carousel').carousel({
+      interval: 5000 //changes the speed
+  })
+  </script>
 </body>
