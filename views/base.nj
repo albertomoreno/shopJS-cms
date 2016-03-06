@@ -52,10 +52,10 @@
             </ul>
           </li>
           <li>
-              <a href="#">Servicios</a>
+            <a href="#">Servicios</a>
           </li>
           <li>
-              <a href="#">Contacto</a>
+            <a href="#">Contacto</a>
           </li>
         </ul>
       </div>
@@ -66,12 +66,40 @@
 
   {% block content %}{% endblock %}
 
+  <footer>
+    <div class="container">
+      <div class="row">
+        <ul class="footer-items">
+          <li>
+            <a href="#">Sobre Nosotros</a>
+          </li>
+          <li>
+            <a href="#">Terminos y Condiciones</a>
+          </li>
+          <li>
+            <a href="#">Politica y Cookies</a>
+          </li>
+          <li>
+            <a href="#">FAQ's</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 copyright">
+        <div class="container">
+          <p>Copyright &copy; ShopJS 2016</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script src="/tmp/vendor/jquery.min.js"></script>
   <script src="/tmp/vendor/bootstrap.min.js"></script>
 
   <script>
   $('.carousel').carousel({
-      interval: 5000 //changes the speed
+      interval: 4000 //changes the speed
   })
   </script>
 </body>

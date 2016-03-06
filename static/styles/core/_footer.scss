@@ -1,0 +1,31 @@
+
+footer {
+  background-color: $brand-primary;
+  padding-top: 20px;
+
+  & p {
+    color: #f0f0f0;
+  }
+}
+
+.footer-items {
+  list-style: none;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding-bottom: 20px;
+
+  & > li {
+    display: inline-block;
+    padding-right: 5%;
+  }
+  
+  & a {
+    color: #f0f0f0;
+  }
+}
+
+.copyright {
+  padding-top: 10px;
+  background-color: #101010;
+}
