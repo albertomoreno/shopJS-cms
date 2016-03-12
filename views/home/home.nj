@@ -45,13 +45,134 @@
   </header>
 
   <div class="container">
-    <p>Hola, mundo</p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <!-- Tabs -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="col-lg-12">
+          <h2 class="page-header">Nuestros productos</h2>
+        </div>
+        <ul id="myTab" class="nav nav-tabs nav-justified">
+          <li class="active">
+            <a href="#recommended-products" data-toggle="tab"><i class="fa fa-bell"></i>Recomendados</a>
+          </li>
+          <li class="">
+            <a href="#news-products" data-toggle="tab"><i class="fa fa-heart"></i>Nuevos</a>
+          </li>
+          <li class="">
+            <a href="#seller-products" data-toggle="tab"><i class="fa fa-star"></i>Mas vendidos</a>
+          </li>
+        </ul>
+
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade active in" id="recommended-products">
+            {% for i in [1,2,3,4,5,6,7,8] %}
+              <div class="col-md-3 img-portfolio">
+                <a href="#">
+                  <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                  <a href="#">Nombre Producto</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="tab-pane fade" id="news-products">
+            {% for i in [1,2,3,4,5,6,7,8] %}
+              <div class="col-md-3 img-portfolio">
+                <a href="#">
+                  <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                  <a href="#">Nombre Producto</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="tab-pane fade" id="seller-products">
+            {% for i in [1,2,3,4,5,6,7,8] %}
+              <div class="col-md-3 img-portfolio">
+                <a href="#">
+                  <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                </a>
+                <h3>
+                  <a href="#">Nombre Producto</a>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Tabs -->
+
+    <!-- Services -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="page-header">Servicios</h2>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <span class="fa-stack fa-5x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-check-square-o fa-stack-1x fa-inverse"></i>
+            </span>
+          </div>
+          <div class="panel-body">
+            <h4>Calidad Garantizada</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+          <div class="panel panel-default text-center">
+              <div class="panel-heading">
+                  <span class="fa-stack fa-5x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
+                  </span>
+              </div>
+              <div class="panel-body">
+                  <h4>Tarjeta Credito</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+          <div class="panel panel-default text-center">
+              <div class="panel-heading">
+                  <span class="fa-stack fa-5x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-cc-paypal fa-stack-1x fa-inverse"></i>
+                  </span>
+              </div>
+              <div class="panel-body">
+                  <h4>Paypal</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+          <div class="panel panel-default text-center">
+              <div class="panel-heading">
+                  <span class="fa-stack fa-5x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-mobile fa-stack-1x fa-inverse"></i>
+                  </span>
+              </div>
+              <div class="panel-body">
+                  <h4>Acceso Movil</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- End Servides -->
 
   </div>
 
