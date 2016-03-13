@@ -5,7 +5,7 @@
 {% block content %}
   
   <div class="img-header">
-    <img src="http://placehold.it/1200x300&text=FAQs" alt="">
+    <img src="http://placehold.it/1200x300&text=Preguntas Frecuentes" alt="">
   </div>
 
   <div class="container">
