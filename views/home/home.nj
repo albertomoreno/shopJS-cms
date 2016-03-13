@@ -68,7 +68,7 @@
             {% for i in [1,2,3,4,5,6,7,8] %}
               <div class="col-md-3 img-portfolio">
                 <a href="#">
-                  <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                  <img class="img-responsive img-hover" src="http://placehold.it/700x400&text=Producto" alt="">
                 </a>
                 <h3>
                   <a href="#">Nombre Producto</a>
@@ -81,7 +81,7 @@
             {% for i in [1,2,3,4,5,6,7,8] %}
               <div class="col-md-3 img-portfolio">
                 <a href="#">
-                  <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                  <img class="img-responsive img-hover" src="http://placehold.it/700x400&text=Producto" alt="">
                 </a>
                 <h3>
                   <a href="#">Nombre Producto</a>
@@ -94,7 +94,7 @@
             {% for i in [1,2,3,4,5,6,7,8] %}
               <div class="col-md-3 img-portfolio">
                 <a href="#">
-                  <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                  <img class="img-responsive img-hover" src="http://placehold.it/700x400&text=Producto" alt="">
                 </a>
                 <h3>
                   <a href="#">Nombre Producto</a>
