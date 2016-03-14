@@ -74,7 +74,7 @@
             <a href="#">Sobre Nosotros</a>
           </li>
           <li>
-            <a href="#">Terminos y Condiciones</a>
+            <a href="/terminos-condiciones">Terminos y Condiciones</a>
           </li>
           <li>
             <a href="#">Politica y Cookies</a>
