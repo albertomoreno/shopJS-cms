@@ -12,6 +12,10 @@ module.exports = {
   terms: function(req, res) {
     template.render(res, 'content/terms');
   },
+
+  cookies: function(req, res) {
+    template.render(res, 'content/cookies');
+  },
 };
 
 
