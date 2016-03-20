@@ -37,8 +37,8 @@ gulp.task('styles:watch', function() {
     '--precision 10',
     '--line-numbers',
     '--cache-location tmp/sass-cache',
-    '--compass',
-    '--load-path static/styles',
+    '--sourcemap=none',
+    '-E "UTF-8"',
     'static/styles:tmp/assets',
   ];
   exec(cmd.join(' '));
@@ -135,9 +135,10 @@ gulp.task('styles:build', function(done) {
     '--style compressed',
     '--precision 10',
     '--cache-location tmp/sass-cache',
-    '--compass',
-    '--load-path static/styles',
-    'static/styles:tmp/assets',
+    '--sourcemap=none',
+    '-E "UTF-8"',
+    'static/styles/bootstrap/main.scss:tmp/assets/bootstrap/main.css',
+    'static/styles/core/main.scss:tmp/assets/core/main.css',
   ];
   exec(cmd.join(' '), done);
 });

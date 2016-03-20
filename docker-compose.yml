@@ -1,11 +1,13 @@
+version: "2"
 
-web:
-  build: .
-  dockerfile: Dockerfile
-  ports:
-    - "8000:8000"
-    - "35729:35729"
-  volumes:
-    - ".:/opt/web"
+services:
+  web:
+    build: .
+    dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+      - "35729:35729"
+    volumes:
+      - ".:/opt/web"
 
-  command: "bash" 
+    command: "bash"

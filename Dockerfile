@@ -2,15 +2,13 @@
 FROM google/debian:wheezy
 MAINTAINER Alberto Moreno <albertinivva@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update
-
-RUN apt-get install -y curl
+RUN apt-get update && \
+    apt-get install -y curl build-essential
 
 RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y ruby ruby-dev
-RUN gem install compass --version 0.12.6
+RUN gem install sass rb-inotify
 
 RUN npm install -g gulp
 RUN npm install -g supervisor
@@ -24,6 +22,8 @@ COPY . /opt/web
 WORKDIR /opt/web
 
 RUN npm i
+
+ENV SASS_PATH /opt/web
 
 USER alberto
 
