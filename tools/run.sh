@@ -2,4 +2,4 @@
 
 set -eu
 
-docker-compose run --service-ports web
+docker-compose run --rm --service-ports web
