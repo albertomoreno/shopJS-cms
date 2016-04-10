@@ -4,6 +4,7 @@
 var express = require('express'),
     nunjucks = require('nunjucks'),
     path = require('path'),
+    mongoose = require('mongoose'),
     router = require('./router');
 
 var app = express();
@@ -14,9 +15,18 @@ app.use('/tmp/fonts', express.static(path.join(__dirname, 'tmp', 'fonts')));
 app.use('/tmp/vendor', express.static(path.join(__dirname, 'tmp', 'vendor')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 
-router(app);
-
 nunjucks.configure({ noCache: true });
+
+mongoose.connect('mongodb://database/admin');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  // console.log('connected');
+});
+
+router(app);
 
 // Start server
 app.listen(8000, function () {
