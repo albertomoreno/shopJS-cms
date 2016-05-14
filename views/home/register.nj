@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="/tmp/styles/bootstrap/main.css">
-  <link rel="stylesheet" href="/tmp/styles/core/main.css">
+  <link rel="stylesheet" href="/static/styles/register.css">
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
@@ -16,16 +16,27 @@
 <body>
   
   <p class="texto">Registro</p>
-  <div class="Registro">
-    <form method="post" action="">
+  <div class="Registro" ng-controller="RegisterController">
+    <form method="post" action="/registro">
 
-      <span class="fontawesome-user"></span><input type="text" required placeholder="Nombre de usuario" autocomplete="off"> 
-      <span class="fontawesome-envelope-alt"></span><input type="text" id="email" required placeholder="Correo" autocomplete="off">
-      <span class="fontawesome-lock"></span><input type="password" name="password" id="password" required placeholder="Contraseña" autocomplete="off"> 
+      <span class="fontawesome-user"></span>
+      <input type="text" name="name" required placeholder="Nombre" ng-model="user.name" ng-minlength="3">
+      <!-- <p ng-show="userForm.username.$error.minlength">Username is too short.</p> -->
+
+      <span class="fontawesome-envelope-alt"></span>
+      <input type="text" id="email" name="email" required placeholder="Correo" ng-model="user.email">
+      
+      <span class="fontawesome-lock"></span>
+      <input type="password" name="password" id="password" required placeholder="Contraseña" ng-model="user.password"> 
 
       <input type="submit" value="Registrar" title="Registra tu cuenta">
 
     </form>
   </div>
 
+  <script src="/tmp/vendor/jquery.min.js"></script>
+  <script src="/tmp/vendor/bootstrap.min.js"></script>
+  <script src="/tmp/vendor/angular.min.js"></script>
+  <script src="/static/scripts/register.js"></script>
 </body>
+

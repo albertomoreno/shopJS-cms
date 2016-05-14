@@ -6,6 +6,7 @@ var express = require('express'),
     path = require('path'),
     mongoose = require('mongoose'),
     router = require('./router');
+var bodyParser = require('body-parser');
 
 var app = express();
 
@@ -14,11 +15,13 @@ app.use('/tmp/styles', express.static(path.join(__dirname, 'tmp', 'styles')));
 app.use('/tmp/fonts', express.static(path.join(__dirname, 'tmp', 'fonts')));
 app.use('/tmp/vendor', express.static(path.join(__dirname, 'tmp', 'vendor')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
+app.use(bodyParser());
 
 nunjucks.configure({ noCache: true });
 
-mongoose.connect('mongodb://database/admin');
-// mongoose.connect('mongodb://admin:admin1234@database/admin');
+
+mongoose.connect('mongodb://shopcms:shopcmspwd@database/shopcms');
+// mongoose.connect('mongodb://database/shopcms');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
