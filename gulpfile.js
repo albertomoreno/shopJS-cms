@@ -57,6 +57,7 @@ gulp.task('styles:watch', function() {
 gulp.task('livereload', function() {
   $.watch([
     'views/**/*.nj',
+    'static/styles/*.css',
   ], function(files) {
     $.livereload.reload();
   });
@@ -97,12 +98,12 @@ gulp.task('images:build', function(taskDone) {
 gulp.task('serve', function(done) {
   runSequence(
     'clean',
+    // [
+      // 'scripts:vendor',
+      // 'fonts:publish',
+    // ],
     [
-      'scripts:vendor',
-      'fonts:publish',
-    ],
-    [
-      'styles:watch',
+      // 'styles:watch',
       'livereload',
       'supervisor'
     ],

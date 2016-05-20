@@ -1,6 +1,7 @@
 
-var home = require('./controllers/home');
-var content = require('./controllers/content');
+var home = require('./controllers/home'),
+    admin = require('./controllers/admin'),
+    content = require('./controllers/content');
 
 
 module.exports = function(app) {
@@ -9,6 +10,7 @@ module.exports = function(app) {
   app.get('/faq', content.faq);
   app.get('/registro', home.register);
   app.post('/registro', home.postRegister);
+  app.get('/cambiar-tema', admin.changeTheme);
   app.get('/', home.home);
 };
 

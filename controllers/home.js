@@ -6,6 +6,7 @@ var express = require('express'),
     bcrypt = require('bcryptjs'),
     template = require('../lib/template.js');
 
+
 module.exports = {
   home: function(req, res) {
 

@@ -1,0 +1,97 @@
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+}
+
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+.navbar {
+  background-color: #202020;
+}
+
+.navbar-admin {
+  margin-bottom: 0;
+  background-color: #f0f0f0;
+  width: 100%;
+  min-height: 40px;
+}
+
+#collapse-admin {
+  background-color: #f0f0f0;
+}
+
+.carousel {
+  height: 400px;
+}
+
+.carousel .item,
+.carousel .item.active,
+.carousel .carousel-inner {
+  height: 100%;
+}
+
+.carousel .fill {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.img-header {
+  max-height: 400px;
+  height: 400px;
+
+  margin-bottom: 30px;
+}
+
+.img-header > img {
+  width: 100%;
+  height: 100%;
+}
+
+footer {
+  background-color: #202020;
+  padding-top: 20px;
+  margin-top: 50px;
+}
+
+footer p {
+  color: #f0f0f0;
+}
+
+.footer-items {
+  list-style: none;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.footer-items > li {
+  display: inline-block;
+  padding-right: 5%;
+}
+
+.footer-items a {
+  color: #f0f0f0;
+}
+
+.copyright {
+  padding-top: 10px;
+  background-color: #101010;
+}
+
+.tab-pane {
+  margin-top: 30px;
+}
