@@ -3,6 +3,7 @@
 
 var express = require('express'),
     Shop = require('../models/Shop'),
+    Admin = require('../models/Admin'),
     bcrypt = require('bcryptjs'),
     env = require('../lib/env_template.js'),
     template = require('../lib/template.js');
@@ -45,5 +46,39 @@ module.exports = {
 
     });
   },
+
+  login: function(req, res) {
+
+    var email = req.param('email');
+    var password = req.param('password');
+
+    Admin.find({email: email}, function(err, admin) {
+      if(err) throw err;
+
+      if(admin.length > 0) {
+
+        var cmp = bcrypt.compareSync(password, admin[0].password);
+
+        if(cmp) {
+          req.session.user = admin[0].email;
+          env.user(admin[0].email);
+          res.send('true');
+        } else {
+          res.send('false');
+        }
+
+      } else {
+        res.send('false');
+      }
+
+    });
+  },
+
+  logout: function(req, res) {
+    env.user(null);
+    req.session.user = null;
+
+    res.redirect('/');
+  }
 };
 

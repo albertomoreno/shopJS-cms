@@ -1,11 +1,12 @@
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    padding-top: 50px;
+  padding-top: 50px;
+  overflow-x: hidden;
 }
 
 .img-portfolio {
@@ -94,4 +95,14 @@ footer p {
 
 .tab-pane {
   margin-top: 30px;
+}
+
+@media(min-width: 768px) {
+  #loginForm {
+    left: 25%;
+  }
+}
+
+form button {
+  margin-top: 20px;
 }

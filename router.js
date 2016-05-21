@@ -11,6 +11,8 @@ module.exports = function(app) {
   app.get('/registro', home.register);
   app.post('/registro', home.postRegister);
   app.get('/cambiar-tema', admin.changeTheme);
+  app.post('/login', admin.login);
+  app.get('/logout', admin.logout);
   app.get('/', home.home);
 };
 
