@@ -55,7 +55,9 @@ input {
   outline: none;
 }
 
-.Registro input[type="text"] {
+.Registro input[type="text"],
+.Registro input[type="email"]
+{
   background-color: #fff;
   border-top: 2px solid #2c90c6;
   border-right: 1px solid #000;
@@ -116,4 +118,8 @@ input {
   font-family: 'Titan One';   
   text-shadow: 1px 2px 1px  rgba(0,0,0,.5);
   padding-top: 40px;
+}
+
+.no-margin {
+  margin: 0;
 }

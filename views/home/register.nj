@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="/tmp/styles/bootstrap/main.css">
+  <link rel="stylesheet" href="/static/styles/bootstrap.min.css">
   <link rel="stylesheet" href="/static/styles/register.css">
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -16,27 +16,36 @@
 <body>
   
   <p class="texto">Registro</p>
-  <div class="Registro" ng-controller="RegisterController">
-    <form method="post" action="/registro">
+  <div class="Registro"  ng-app="validationApp" ng-controller="mainController">
+    <form method="post" name="userForm" action="/registro" novalidate>
 
-      <span class="fontawesome-user"></span>
-      <input type="text" name="name" required placeholder="Nombre" ng-model="user.name" ng-minlength="3">
-      <!-- <p ng-show="userForm.username.$error.minlength">Username is too short.</p> -->
-
-      <span class="fontawesome-envelope-alt"></span>
-      <input type="text" id="email" name="email" required placeholder="Correo" ng-model="user.email">
+      <div class="form-group no-margin" ng-class="{ 'has-error': userForm.name.$invalid && !userForm.name.$pristine }">
+        <span class="fontawesome-user"></span>
+        <input type="text" id="name" name="name" placeholder="Nombre" ng-model="user.name" ng-minlength="3" required>
+        <p class="label label-danger" ng-show="userForm.name.$error.minlength">El nombre es demasiado corto</p>
+      </div>
       
-      <span class="fontawesome-lock"></span>
-      <input type="password" name="password" id="password" required placeholder="Contraseña" ng-model="user.password"> 
+      <div class="form-group no-margin" ng-class="{ 'has-error': userForm.email.$invalid && !userForm.email.$pristine }">
+        <span class="fontawesome-envelope-alt"></span>
+        <input type="email" id="email" name="email" required placeholder="Correo" ng-model="user.email">
+        <p class="label label-danger" ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Intoduce un email correcto</p>
+      </div>
+      
+      <div class="form-group no-margin">
+        <span class="fontawesome-lock"></span>
+        <input type="password" name="password" id="password" required placeholder="Contraseña" ng-model="user.password" ng-minlength="6">
+        <p class="label label-danger" ng-show="userForm.password.$error.minlength" class="help-block">La contraseña debe contener al menos 6 caracteres</p>
+      </div>
+        
 
-      <input type="submit" value="Registrar" title="Registra tu cuenta">
+      <input type="submit" value="Registrar" title="Registra tu cuenta" ng-disabled="userForm.$invalid">
 
     </form>
   </div>
 
-  <script src="/tmp/vendor/jquery.min.js"></script>
-  <script src="/tmp/vendor/bootstrap.min.js"></script>
-  <script src="/tmp/vendor/angular.min.js"></script>
+  <script src="/static/scripts/jquery.min.js"></script>
+  <script src="/static/scripts/bootstrap.min.js"></script>
+  <script src="/static/scripts/angular.min.js"></script>
   <script src="/static/scripts/register.js"></script>
 </body>
 

@@ -1,5 +1,6 @@
 
-angular.module('registerForm', ['ngMessages'])
-  .controller('RegisterController', ['$scope', function($scope) {
+angular.module('validationApp', [])
+  .controller('mainController', function($scope) {
     $scope.data = {};
-  }]);
+  });
+
