@@ -12,6 +12,7 @@ var express = require('express'),
 
 
 var app = express();
+var env = new nunjucks.Environment();
 
 
 // Middlewares
@@ -32,43 +33,17 @@ app.use(function(req,res,next){
   res.locals.session = req.session;
   next();
 });
+app.use(function(req, res, next) {
+  env.express(app);
+  env.addGlobal('user', req.session.user);
+  next();
+});
 
 
 nunjucks.configure({ noCache: true, express: app });
 
 
-var env = new nunjucks.Environment();
-env.addGlobal('themes', [
-  'Default',
-  'Cerulean',
-  'Cosmo',
-  'Flatly',
-  'Journal',
-  'Paper',
-  'Readable',
-  'Spacelab',
-  'United',
-  'Yeti',
-]);
-
-var Shop = require('./models/Shop');
-Shop.find({}, function(err, shop) {
-  if (err) console.log(err);
-
-  if(shop.length == 0) {
-    env.addGlobal('shop', null);
-  } else {
-    env.addGlobal('shop', shop[0]);
-  }
-});
-
-env.express(app);
-
-app.use(function(req, res, next) {
-  env.addGlobal('user', req.session.user);
-
-  next();
-});
+/** End Template Variables **/
 
 
 mongoose.connect('mongodb://shopcms:shopcmspwd@database/shopcms');
