@@ -51,8 +51,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Temas <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 {% for theme in themes %}
-                  <li>
-                    <a href="javascript:void(0);" data-theme="{{ theme }}" onclick="changeTheme(this)">{{ theme }}</a>
+                  <li {% if shop.theme == theme %} class="active" {% endif %}>
+                    <a href="javascript:void(0);" data-theme="{{ theme | capitalize }}" onclick="changeTheme(this)">{{ theme | capitalize }}</a>
                   </li>
                 {% endfor %}
               </ul>
