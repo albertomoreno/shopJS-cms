@@ -1,0 +1,23 @@
+
+
+<div class="row">
+  <form method="POST" action="/actualizar-categoria" id="categoryForm" name="categoryForm" class="col-sm-6" novalidate>
+    <div class="form-group" ng-class="{ 'has-error': categoryForm.categoryName.$invalid && !categoryForm.categoryName.$pristine }">
+      <label for="categoryName">Nombre</label>
+      <input type="text" id="categoryName" name="categoryName" class="form-control input-sm" ng-model="category.categoryName" ng-minlength="4" required>
+      <p ng-show="categoryForm.categoryName.$error.minlength" class="help-block">El nombre es demasiado corto</p>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': categoryForm.parent.$invalid && !categoryForm.parent.$pristine }">
+      <label for="parent">Categoria padre</label>
+      <input type="text" id="parent" name="parent" value="{% if parent == '' %} Raiz {% else %} {{ parent.name }} {% endif %}" class="form-control input-sm" ng-model="category.parent" disabled>
+    </div>
+    <input type="hidden" name="parentId" id="parentId" value="{{ parent._id }}">
+    <div class="form-group">
+      <label for="published">Publicada</label>
+      <input type="checkbox" id="published" name="published" class="form-control">
+    </div>
+    <label id="category-error" class="label label-danger" style="display: none;"></label>
+    <button type="button" class="btn btn-primary" onclick="updateCategory()" ng-disabled="categoryForm.$invalid">Guardar</button>
+  </form>
+</div>
+

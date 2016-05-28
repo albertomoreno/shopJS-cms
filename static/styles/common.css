@@ -101,6 +101,9 @@ footer p {
   #loginForm {
     left: 25%;
   }
+  #categoryForm {
+    left: 25%;
+  }
 }
 
 form button {
@@ -153,4 +156,9 @@ form button {
   -webkit-border-radius:6px 0 6px 6px;
   -moz-border-radius:6px 0 6px 6px;
   border-radius:6px 0 6px 6px;
+}
+
+input[type=checkbox] {
+  width: auto;
+  height: auto;
 }

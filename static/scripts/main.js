@@ -46,10 +46,5 @@ function logout() {
   });
 }
 
-angular.module('validationApp', [])
-  .controller('mainController', function($scope) {
-    $scope.data = {};
-  });
-
-
+var mod = angular.module('shopApp', []);
 

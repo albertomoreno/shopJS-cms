@@ -14,24 +14,13 @@
       <link rel="stylesheet" href="/static/styles/themes/{{ shop.theme }}.css">
     {% endif %}
   {% endif %}
-  <!-- <link rel="stylesheet" href="/static/styles/themes/cerulean.css"> -->
-  <!-- <link rel="stylesheet" href="/static/styles/themes/cosmo.css"> -->
-  <!-- <link rel="stylesheet" href="/static/styles/themes/flatly.css"> -->
-  <!-- <link rel="stylesheet" href="/static/styles/themes/journal.css"> -->
-  <!-- <link rel="stylesheet" href="/static/styles/themes/paper.css"> -->
-  <!-- <link rel="stylesheet" href="/static/styles/themes/readable.css"> -->
-  <!-- <link rel="stylesheet" href="/static/styles/themes/spacelab.css"> -->
-  <!-- <link rel="stylesheet" href="/static/styles/themes/united.css"> -->
-  <!-- <link rel="stylesheet" href="/static/styles/themes/yeti.css"> -->
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
   <title>{% block tittle %}{% endblock %}</title>
 
 </head>
-<body>
-  
-
+<body ng-app="shopApp">
   <div class="navbar-fixed-top">
     <div id="admin-navbar">
       {% include "./admin/navbar.nj" %}
@@ -131,7 +120,7 @@
           <h4 class="modal-title" id="loginLabel">Acceso {{ shop.name }}</h4>
         </div>
         <div class="modal-body">
-          <div class="row" ng-app="validationApp" ng-controller="mainController">
+          <div class="row">
             <form method="POST" action="/login" id="loginForm" name="userForm" class="col-sm-6" novalidate>
               <div class="form-group" ng-class="{ 'has-error': userForm.email.$invalid && !userForm.email.$pristine }">
                 <label for="email">Email</label>
@@ -147,6 +136,22 @@
               <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Iniciar Sesión</button>
             </form>
           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="loginLabel">Categoria</h4>
+        </div>
+        <div class="modal-body">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

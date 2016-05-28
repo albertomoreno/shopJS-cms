@@ -39,6 +39,7 @@
     "lodash": "^3.10.1",
     "mongodb": "^2.1.18",
     "mongoose": "^4.4.12",
-    "nunjucks": "^2.0.0"
+    "nunjucks": "^2.0.0",
+    "slug": "^0.9.1"
   }
 }
