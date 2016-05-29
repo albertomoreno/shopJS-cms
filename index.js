@@ -23,7 +23,7 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use(bodyParser());
 app.use(session({
   secret: 'shopcms',
-  cookie: { maxAge: 86400 }, // 1 day
+  cookie: { maxAge: 1000*60*60*24 }, // 1 day
   store: new MongoDBStore({
     uri: 'mongodb://shopcms:shopcmspwd@database/shopcms',
     collection: 'sessions'
