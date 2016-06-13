@@ -46,5 +46,4 @@ function logout() {
   });
 }
 
-var mod = angular.module('shopApp', []);
 

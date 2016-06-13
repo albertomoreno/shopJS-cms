@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="shopApp">
 <head>
 
   <meta charset="utf-8">
@@ -17,10 +17,10 @@
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-  <title>{% block tittle %}{% endblock %}</title>
+  <title>{{ title }}</title>
 
 </head>
-<body ng-app="shopApp">
+<body>
   <div class="navbar-fixed-top">
     <div id="admin-navbar">
       {% include "./admin/navbar.nj" %}
@@ -82,7 +82,9 @@
     
   </div>
 
-  {% block content %}{% endblock %}
+  <div id="content">
+    {{ content | safe }}
+  </div>
 
   <footer>
     <div class="container">
@@ -144,26 +146,17 @@
     </div>
   </div>
 
-  <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="loginLabel">Categoria</h4>
-        </div>
-        <div class="modal-body">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <script src="/static/scripts/jquery.min.js"></script>
-  <script src="/static/scripts/bootstrap.min.js"></script>
-  <script src="/static/scripts/angular.min.js"></script>
+  <script src="/static/scripts/vendor/jquery.min.js"></script>
+  <script src="/static/scripts/vendor/bootstrap.min.js"></script>
+  <script src="/static/scripts/vendor/angular.js"></script>
+  <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+  <script src="/node_modules/angular-messages/angular-messages.min.js"></script>
+  <script src="/static/scripts/app.js"></script>
+  <script src="/static/scripts/categories/add-category.js"></script>
+  <script src="/static/scripts/validators/unique.js"></script>
   <script src="/static/scripts/admin.js"></script>
+  <script src="/static/scripts/reload.js"></script>
   <script src="/static/scripts/main.js"></script>
 
 </body>

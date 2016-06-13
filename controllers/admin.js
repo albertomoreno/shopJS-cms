@@ -7,7 +7,6 @@ var express = require('express'),
     Category = require('../models/Category'),
     bcrypt = require('bcryptjs'),
     createSlug = require('slug'),
-    env = require('../lib/env_template.js'),
     template = require('../lib/template.js');
 
 
@@ -29,7 +28,6 @@ module.exports = {
         shop.save(function(err) {
           if (err) throw err;
 
-          env.shop();
           // res.redirect('/');
           res.end('{"result": true}');
         });
@@ -40,7 +38,6 @@ module.exports = {
           if (err) throw err;
 
 
-          env.shop();
           // res.redirect('/');
           res.end('true');
         });
@@ -63,7 +60,6 @@ module.exports = {
 
         if(cmp) {
           req.session.user = admin[0].email;
-          env.user(admin[0].email);
           res.send('true');
         } else {
           res.send('false');
@@ -77,60 +73,36 @@ module.exports = {
   },
 
   logout: function(req, res) {
-    env.user(null);
     req.session.user = null;
 
     res.redirect('/');
   },
 
   createCategory: function(req, res) {
-
-    var parent = req.param('parent');
-
-    template.render(res, 'admin/category', {parent: parent, category: null});
-  },
-
-  updateCategory: function(req, res) {
-
     var id = req.body.id;
     var name = req.body.categoryName;
-    var parent = req.body.parentId ? req.body.parentId : 0;
+    var parent = req.body.parentId ? req.body.parentId : null;
     var published = req.body.published ? true : false;
     var slug = createSlug(name, {lower: true});
 
-    // Create new category
-    if(id == '') {
-      Category.find({name: name}, function(err, category) {
-        if(err) {
-          console.log(err);
-          res.send(JSON.stringify({result: false, message: 'Ha ocurrido un error al guardar la categoria.'}));
-        } else {
-          if(category.length > 0) {
-            res.send(JSON.stringify({result: false, message: 'Ya existe una categoria con ese nombre.'}));
-          } else {
-            var category = new Category({
-              name: name,
-              parent: parent,
-              published: published,
-              slug: slug,
-            });
-
-            category.save(function(err) {
-              if(err) {
-                console.log(err);
-                res.send(JSON.stringify({result: false, message: 'Ha ocurrido un error al guardar la categoria.'}));
-              } else {
-
-                env.getParentCategories();
-                var navbar = template.renderPartial('admin/navbar');
-                res.send(JSON.stringify({result: true, message: navbar}));
-              }
-            })
-          }
+    return Category.find({name: name})
+      .then(function(categories) {
+        if(categories.length) {
+          return Promise.reject('Ya existe una categoria con ese nombre.');
         }
-      });
-    }
 
-  }
+        var category = new Category({
+          name: name,
+          parent: parent,
+          published: published,
+          slug: slug,
+        });
+
+        return category.save();
+      })
+      .then(function() {
+        res.json({succes: true});
+      });
+  },
 };
 

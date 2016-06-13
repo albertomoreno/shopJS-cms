@@ -150,7 +150,7 @@ form button {
   float:none;
 }
 
-.dropdown-submenu.pull-left>.dropdown-menu {
+.dropdown-submenu.pull-left > .dropdown-menu {
   left:-100%;
   margin-left:10px;
   -webkit-border-radius:6px 0 6px 6px;
@@ -161,4 +161,21 @@ form button {
 input[type=checkbox] {
   width: auto;
   height: auto;
+}
+
+.menu-items {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+}
+
+.menu-items:hover {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
+  cursor: pointer;
 }

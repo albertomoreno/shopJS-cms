@@ -25,14 +25,14 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            {% for category in getParentCategories %}
+            {% for category in categories %}
               <li>
                 <a href="javascript:void(0);">{{ category.name | capitalize }}</a>
               </li>
             {% endfor %}
             <li role="separator" class="divider"></li>
             <li>
-              <a href="javascript:void(0);" data-parent="null" onclick="createCategory(this)">Añadir categoria</a>
+              <add-category></add-category>
             </li>
           </ul>
         </li>
@@ -48,7 +48,7 @@
             </li>
             <li role="separator" class="divider"></li>
             <li>
-              <a href="javascript:void(0);">Añadir categoria</a>
+              <add-category items="{{categories|dump}}"></add-category>
             </li>
           </ul>
         </li>

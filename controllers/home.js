@@ -3,6 +3,7 @@
 
 var express = require('express'),
     Admin = require('../models/Admin'),
+    Category = require('../models/Category'),
     bcrypt = require('bcryptjs'),
     template = require('../lib/template.js');
 
@@ -18,7 +19,12 @@ module.exports = {
         res.redirect('/registro');
         // template.render(res, 'home/register');
       } else {
-        template.render(res, 'home/home');
+        Category.find({})
+          .then(function () {
+            template.render(req, res, 'home/home', {
+              title: 'ShopJS',
+            });
+          })
       }
     });
 

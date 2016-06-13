@@ -8,7 +8,7 @@ var Schema = mongoose.Schema;
 // create a schema
 var schema = new Schema({
   name: { type: String, required: true, unique: true  },
-  parent: { type: Number, required: true},
+  parent: { type: Schema.Types.ObjectId},
   published: { type: Boolean, required: true },
   slug: { type: String, required: true },
 });
