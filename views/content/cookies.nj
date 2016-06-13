@@ -1,15 +1,9 @@
-{% extends "views/base.nj" %}
+<div class="img-header">
+  <img src="http://placehold.it/1200x400&text=Politica y Cookies" alt="">
+</div>
 
-{% block tittle %}ShopJS{% endblock %}
-
-{% block content %}
-  
-  <div class="img-header">
-    <img src="http://placehold.it/1200x400&text=Politica y Cookies" alt="">
-  </div>
-
-  <div class="container">
-    <h1 class="page-header">Politica y Cookies</h1>
+<div class="container">
+  <h1 class="page-header">Politica y Cookies</h1>
 
   <div class="row">
     <div class="col-lg-12">
@@ -19,7 +13,4 @@
     </div>
   </div>
 
-  </div>
-
-
-{% endblock %}
+</div>

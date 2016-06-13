@@ -17,14 +17,10 @@ module.exports = {
       // if not exist admin user
       if(admin.length == 0) {
         res.redirect('/registro');
-        // template.render(res, 'home/register');
       } else {
-        Category.find({})
-          .then(function () {
-            template.render(req, res, 'home/home', {
-              title: 'ShopJS',
-            });
-          })
+        template.render(req, res, 'home/home', {
+          title: 'ShopJS',
+        });
       }
     });
 

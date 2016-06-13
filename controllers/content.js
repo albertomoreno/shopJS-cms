@@ -6,15 +6,21 @@ var express = require('express'),
 
 module.exports = {
   faq: function(req, res) {
-    template.render(res, 'content/faq');
+    template.render(req, res, 'content/faq', {
+      title: 'FAQ - ShopJS',
+    });
   },
 
   terms: function(req, res) {
-    template.render(res, 'content/terms');
+    template.render(req, res, 'content/terms', {
+      title: 'Terminos y Condiciones - ShopJS',
+    });
   },
 
   cookies: function(req, res) {
-    template.render(res, 'content/cookies');
+    template.render(req, res, 'content/cookies', {
+      title: 'Politica y Cookies - ShopJS',
+    });
   },
 };
 
