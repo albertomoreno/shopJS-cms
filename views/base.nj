@@ -152,10 +152,10 @@
   <script src="/static/scripts/vendor/angular.js"></script>
   <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
   <script src="/node_modules/angular-messages/angular-messages.min.js"></script>
+  
   <script src="/static/scripts/app.js"></script>
   <script src="/static/scripts/categories/add-category.js"></script>
   <script src="/static/scripts/validators/unique.js"></script>
-  <script src="/static/scripts/admin.js"></script>
   <script src="/static/scripts/reload.js"></script>
   <script src="/static/scripts/main.js"></script>
 

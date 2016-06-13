@@ -13,7 +13,7 @@ var express = require('express'),
 module.exports = {
   changeTheme: function(req, res) {
 
-    var theme = req.param('theme').toLowerCase();
+    var theme = req.params['theme'];
 
     Shop.find({}, function(err, shop) {
       if (err) console.log(err);
@@ -28,8 +28,7 @@ module.exports = {
         shop.save(function(err) {
           if (err) throw err;
 
-          // res.redirect('/');
-          res.end('{"result": true}');
+          return res.redirect('back');
         });
       } else {
         shop[0].theme = theme;
@@ -37,9 +36,7 @@ module.exports = {
         shop[0].save(function(err) {
           if (err) throw err;
 
-
-          // res.redirect('/');
-          res.end('true');
+          return res.redirect('back');
         });
       }
 

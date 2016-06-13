@@ -14,7 +14,7 @@ module.exports = function(app) {
   app.post('/crear-categoria', admin.createCategory);
   // app.post('/actualizar-categoria', admin.updateCategory);
   app.post('/category-check', category.check);
-  app.get('/cambiar-tema', admin.changeTheme);
+  app.get('/cambiar-tema/:theme', admin.changeTheme);
   app.post('/login', admin.login);
   app.get('/logout', admin.logout);
   app.get('/', home.home);

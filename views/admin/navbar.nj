@@ -17,7 +17,7 @@
           <ul class="dropdown-menu">
             {% for theme in themes %}
               <li {% if shop.theme == theme %} class="active" {% endif %}>
-                <a href="javascript:void(0);" data-theme="{{ theme | capitalize }}" onclick="changeTheme(this)">{{ theme | capitalize }}</a>
+                <a href="/cambiar-tema/{{ theme }}">{{ theme | capitalize }}</a>
               </li>
             {% endfor %}
           </ul>
