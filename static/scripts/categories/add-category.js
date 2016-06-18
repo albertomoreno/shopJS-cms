@@ -21,8 +21,8 @@ ModalCtrl.prototype.submit = function() {
 
 angular.module('shopApp').component('addCategory', {
   templateUrl: '/static/scripts/categories/add-category.html',
-  scope: {
-    items: '=',
+  bindings: {
+    categories: '=',
   },
   controller: function($uibModal, $scope) {
     this.show = function() {

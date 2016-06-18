@@ -58,7 +58,7 @@ gulp.task('livereload', function() {
   $.watch([
     'views/**/*.nj',
     'static/styles/*.css',
-    'static/scripts/**/*.js',
+    'static/scripts/**/*.{js,html}',
   ], function(files) {
     $.livereload.reload();
   });
