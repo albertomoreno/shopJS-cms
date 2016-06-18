@@ -3,7 +3,7 @@
 
 angular.module('shopApp').component('adminCategories', {
   templateUrl: '/static/scripts/categories/admin-categories.html',
-  bindings: {
-    categories: '=',
-  },
+  controller: function(Categories) {
+    this.categories = Categories.get();
+  }
 });

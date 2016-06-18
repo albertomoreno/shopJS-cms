@@ -9,6 +9,7 @@ var express = require('express'),
     MongoDBStore = require('connect-mongodb-session')(session),
     router = require('./router'),
     slug = require('slug'),
+    Promise = require('promise'),
     bodyParser = require('body-parser');
 
 require('promise/lib/rejection-tracking').enable();
@@ -33,6 +34,12 @@ app.use(session({
 app.use(function(req,res,next){
   res.locals.session = req.session;
   next();
+});
+app.use(function(req, res, next) {
+  Promise.resolve(next()).catch(function (err) {
+    throw err;
+  });
+
 });
 
 

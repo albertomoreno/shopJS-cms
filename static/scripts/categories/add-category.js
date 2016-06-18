@@ -1,12 +1,17 @@
 'use strict';
 
 
-var ModalCtrl = function($http, $uibModalInstance) {
+var ModalCtrl = function($http, $uibModalInstance, Categories) {
   this._$http = $http;
   this._$uibModalInstance = $uibModalInstance;
+  this._Categories = Categories;
 
-  this.data = {};
-  // published: true
+  this.categories = Categories.get();
+
+  this.data = {
+    parent: '', 
+    published: true
+  };
 };
 
 
@@ -14,6 +19,10 @@ ModalCtrl.prototype.submit = function() {
   var that = this;
   this._$http.post('/crear-categoria', this.data).then(function(res) {
     that._$uibModalInstance.close();
+
+    that._Categories.add(res.data);
+    console.log(res);
+
     reloadShop();
   });
 };
@@ -21,10 +30,7 @@ ModalCtrl.prototype.submit = function() {
 
 angular.module('shopApp').component('addCategory', {
   templateUrl: '/static/scripts/categories/add-category.html',
-  bindings: {
-    categories: '=',
-  },
-  controller: function($uibModal, $scope) {
+  controller: function($uibModal, $q) {
     this.show = function() {
       $uibModal.open({
         templateUrl: '/static/scripts/categories/add-category-modal.html',

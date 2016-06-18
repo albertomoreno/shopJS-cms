@@ -6,6 +6,7 @@ var express = require('express'),
     Admin = require('../models/Admin'),
     Category = require('../models/Category'),
     bcrypt = require('bcryptjs'),
+    mongoose = require('mongoose'),
     createSlug = require('slug'),
     template = require('../lib/template.js');
 
@@ -76,30 +77,19 @@ module.exports = {
   },
 
   createCategory: function(req, res) {
-    var id = req.body.id;
-    var name = req.body.categoryName;
-    var parent = req.body.parentId ? req.body.parentId : null;
-    var published = req.body.published ? true : false;
-    var slug = createSlug(name, {lower: true});
+    var data = req.body;
+    data.parent = data.parent ? mongoose.Types.ObjectId(data.parent) : null;
+    data.slug = createSlug(data.name, {lower: true});
+    data.published = !!data.published;
 
-    return Category.find({name: name})
-      .then(function(categories) {
-        if(categories.length) {
-          return Promise.reject('Ya existe una categoria con ese nombre.');
-        }
-
-        var category = new Category({
-          name: name,
-          parent: parent,
-          published: published,
-          slug: slug,
-        });
-
-        return category.save();
-      })
-      .then(function() {
-        res.json({succes: true});
-      });
+    var category = new Category(data);
+    return category.save().then(function(category) {
+      res.json(category);
+    });
   },
+
+  reloadNavbar: function(req, res) {
+    template.render(req, res, 'navbar', null, true);
+  }
 };
 
