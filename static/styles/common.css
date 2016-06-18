@@ -183,3 +183,7 @@ input[type=checkbox] {
 .open>admin-categories>.dropdown-menu {
   display: block;
 }
+
+.dropdown-menu {
+  margin-top: -2px;
+}
