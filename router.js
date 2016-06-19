@@ -11,7 +11,7 @@ module.exports = function(app) {
   app.get('/faq', content.faq);
   app.get('/registro', home.register);
   app.post('/registro', home.postRegister);
-  app.post('/crear-categoria', admin.createCategory);
+  app.post('/crear-categoria', category.createCategory);
   // app.post('/actualizar-categoria', admin.updateCategory);
   app.post('/category-check', category.check);
   app.get('/cambiar-tema/:theme', admin.changeTheme);

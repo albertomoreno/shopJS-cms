@@ -16,5 +16,17 @@ module.exports = {
         res.json({unique: true});
       });
   },
+
+  createCategory: function(req, res) {
+    var data = req.body;
+    data.parent = data.parent ? mongoose.Types.ObjectId(data.parent) : null;
+    data.slug = createSlug(data.name, {lower: true});
+    data.published = !!data.published;
+
+    var category = new Category(data);
+    return category.save().then(function(category) {
+      res.json(category);
+    });
+  },
 };
 
