@@ -21,7 +21,6 @@ ModalCtrl.prototype.submit = function() {
     that._$uibModalInstance.close();
 
     that._Categories.add(res.data);
-    console.log(res);
 
     reloadShop();
   });

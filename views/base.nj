@@ -142,6 +142,7 @@
   <script src="/static/scripts/auth/login.js"></script>
   <script src="/static/scripts/categories/categories.js"></script>
   <script src="/static/scripts/categories/add-category.js"></script>
+  <script src="/static/scripts/categories/update-category.js"></script>
   <script src="/static/scripts/categories/admin-categories.js"></script>
   <script src="/static/scripts/validators/unique.js"></script>
   <script src="/static/scripts/reload.js"></script>

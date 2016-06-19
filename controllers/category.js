@@ -28,5 +28,14 @@ module.exports = {
       res.json(category);
     });
   },
+
+  get: function(req, res) {
+    var id = req.body.id;
+
+    Category.findOne({_id: id}).then(function (category) {
+      return res.json({category: category});
+    })
+
+  },
 };
 

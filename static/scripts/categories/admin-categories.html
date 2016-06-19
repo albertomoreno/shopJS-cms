@@ -1,7 +1,8 @@
 
 <ul class="dropdown-menu">
   <li ng-repeat="category in $ctrl.categories" ng-class="category.children.length && 'dropdown-submenu'">
-    <a href="javascript:void(0);">{{category.name}}</a>
+    <!-- <a href="javascript:void(0);">{{category.name}}</a> -->
+    <update-category category="category"></update-category>
     <ul ng-if="category.children.length" class="dropdown-menu">
       <li ng-repeat="child in category.children">
         <a href="javascript:void(0);">{{child.name}}</a>
