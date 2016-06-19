@@ -58,13 +58,13 @@ module.exports = {
 
         if(cmp) {
           req.session.user = admin[0].email;
-          res.send('true');
+          return res.json({result: true});
         } else {
-          res.send('false');
+          return res.json({result: false});
         }
 
       } else {
-        res.send('false');
+        return res.json({result: false});
       }
 
     });

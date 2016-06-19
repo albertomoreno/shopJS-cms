@@ -39,8 +39,9 @@
       <li>
         <a href="#">Contacto</a>
       </li>
+      <li><login></login></li>
       <li id="login-button" style="display:{% if user != null %} none{% else %} block{% endif %}">
-        <a href="#loginModal" data-toggle="modal" data-target="#loginModal">Acceder</a>
+        <login></login>
       </li>
       <li id="logout-button" style="display:{% if user != null %} block{% else %} none{% endif %}">
         <a href="/logout">Cerrar Sesión</a>

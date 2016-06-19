@@ -4335,6 +4335,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-bottom: 10px;
   line-height: 21px;
 }
+.navbar-nav > li > login > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 21px;
+}
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
@@ -4367,6 +4372,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
+    padding-top: 19.5px;
+    padding-bottom: 19.5px;
+  }
+  .navbar-nav > li > login > a {
     padding-top: 19.5px;
     padding-bottom: 19.5px;
   }
@@ -4615,6 +4624,14 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
+  color: #2c3e50;
+  background-color: transparent;
+}
+.navbar-inverse .navbar-nav > li > login > a {
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > li > login > a:hover,
+.navbar-inverse .navbar-nav > li > login > a:focus {
   color: #2c3e50;
   background-color: transparent;
 }

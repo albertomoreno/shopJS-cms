@@ -1,0 +1,31 @@
+
+<div class="modal-header">
+  <button type="button" class="close"  ng-click="$close()">&times;</button>
+  <h4 class="modal-title" id="loginLabel">Acceso {{ shop.name }}</h4>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <form method="POST" ng-submit="$ctrl.submit()" name="form" id="loginForm" class="col-sm-6" novalidate>
+      <div class="form-group" ng-class="{ 'has-error': form.email.$invalid && !form.email.$pristine }">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control input-sm" ng-model="$ctrl.data.email" required>
+        <ng-messages for="form.email.$error" ng-hide="form.email.$pristine" class="help-block">
+          <ng-message when="email">Intoduce un email correcto.</ng-message>
+        </ng-messages>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': form.password.$invalid && !form.password.$pristine }">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" class="form-control input-sm" ng-model="$ctrl.data.password" ng-minlength="6" required>
+        <!-- <p ng-show="form.password.$error.minlength" class="help-block">La contraseña debe contener al menos 6 caracteres</p> -->
+        <ng-messages for="form.password.$error" ng-hide="form.password.$pristine" class="help-block">
+          <ng-message when="minlength">La contraseña debe contener al menos 6 caracteres.</ng-message>
+        </ng-messages>
+      </div>
+      <label id="login-error" class="label label-danger" ng-show="$ctrl.data.error">El usuario y la contraseña no coinciden</label>
+      <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Iniciar Sesión</button>
+    </form>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$close()">Cerrar</button>
+</div>
