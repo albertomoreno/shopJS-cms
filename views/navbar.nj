@@ -25,7 +25,7 @@
                 <a href="javascript:void(0);">{{category.name}}</a>
                 <ul class="dropdown-menu">
                   {% for subcategory in category.children %}
-                    <li><a href="javascript:void(0);">{{ subcategory.name }}</a></li>
+                    <li><a href="/productos/{{subcategory.slug}}">{{ subcategory.name }}</a></li>
                   {% endfor %}
                 </ul>
               </li>

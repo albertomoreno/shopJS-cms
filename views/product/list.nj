@@ -1,0 +1,23 @@
+<div class="img-header">
+  <img src="http://placehold.it/1200x400&text=Categoria" alt="">
+</div>
+
+<div class="container">
+  <h1>Categoria</h1>
+
+  <div class="product-list">
+  {% for i in [1,2,3,4,5,6,7,8] %}
+    <div class="col-sm-6 col-md-3 img-portfolio">
+      <a href="#">
+        <img class="img-responsive img-hover" src="http://placehold.it/700x400&text=Producto" alt="">
+      </a>
+      <h3>
+        <a href="#">Nombre Producto</a>
+      </h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+      <p class="p-price"><span class="cross">30.00 €</span><span class="price">20.00 €</span></p>
+    </div>
+  {% endfor %}
+  </div>
+
+</div>

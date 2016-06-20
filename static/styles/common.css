@@ -208,3 +208,21 @@ input[type=checkbox] {
   background-color: transparent;
   text-decoration: none;
 }
+
+.product-list {
+  margin-top: 30px;
+}
+
+.cross {
+  margin-right: 10px;
+  font-size: 13px;
+  color: red;
+  text-decoration: line-through;
+  font-weight: normal;
+}
+
+.p-price {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+}
