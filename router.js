@@ -20,6 +20,7 @@ module.exports = function(app) {
   app.post('/category-check', category.check);
 
   app.get('/productos/:category', product.list);
+  app.get('/producto/:slug', product.product);
 
   app.get('/cambiar-tema/:theme', admin.changeTheme);
   

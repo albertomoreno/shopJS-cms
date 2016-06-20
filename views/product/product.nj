@@ -1,0 +1,37 @@
+
+<div class="container page">
+  
+  <h1 class="page-header">Nombre <small>Categoria</small></h1>
+
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-responsive" src="http://placehold.it/300x300" alt="">
+    </div>
+    <div class="col-md-8">
+      <h2>Nombre de producto</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
+      <p class="product-price">20.00 €<span class="cross">30.00 €</span></p>
+    </div>
+  </div>
+
+
+  <div class="related-products">
+    <h2>Productos relacionados</h2>
+    <div class="product-list">
+    {% for i in [1,2,3,4] %}
+      <div class="col-sm-6 col-md-3 img-portfolio">
+        <a href="#">
+          <img class="img-responsive img-hover" src="http://placehold.it/700x400&text=Producto" alt="">
+        </a>
+        <h3>
+          <a href="#">Nombre Producto</a>
+        </h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+        <p class="p-price"><span class="cross">30.00 €</span><span class="price">20.00 €</span></p>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+
+</div>

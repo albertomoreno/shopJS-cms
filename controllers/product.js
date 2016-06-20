@@ -11,5 +11,14 @@ module.exports = {
       title: 'Productos - ShopJS',
     });
   },
+
+  product: function(req, res) {
+    var slug = req.params['slug'];
+    
+
+    template.render(req, res, 'product/product', {
+      title: 'Producto - ShopJS',
+    })
+  },
 };
 
