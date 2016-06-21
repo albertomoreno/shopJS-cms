@@ -31,12 +31,37 @@ module.exports = {
     });
   },
 
-  get: function(req, res) {
-    var id = req.body.id;
+  checkUpdate: function(req, res) {
+    var category_id = req.params['category_id'];
+    var value = req.body.value;
 
-    Category.findOne({_id: id}).then(function (category) {
-      return res.json({category: category});
-    })
+    return Category.find({name: value, _id: {$ne: mongoose.Types.ObjectId(category_id)} })
+      .then(function(categories) {
+        if(categories.length ) {
+
+          res.json({unique: false});
+        }
+        res.json({unique: true});
+      });
+  },
+
+  updateCategory: function(req, res) {
+
+    var data = req.body;
+    var id = data._id;
+
+    return Category.findById(id)
+      .then(function (category) {
+        category.name = data.name;
+        category.parent = data.parent ? mongoose.Types.ObjectId(data.parent) : null;
+        category.slug = createSlug(data.name, {lower: true});
+        category.published = !!data.published;
+
+        return category.save();
+      })
+      .then(function (category) {
+        return res.json(category);
+      });
 
   },
 };

@@ -1,58 +1,45 @@
 'use strict';
 
 
-var CategoryModalCtrl = function($http, $uibModalInstance, Categories) {
+var CategoryModalCtrl = function($http, $uibModalInstance, Categories, category) {
   this._$http = $http;
   this._$uibModalInstance = $uibModalInstance;
   this._Categories = Categories;
 
   this.categories = Categories.get();
+  this._category = category;
 
-  this.data = {};
+  this.data = angular.copy(category);
 };
 
 
 CategoryModalCtrl.prototype.submit = function() {
-  /*var that = this;
-  this._$http.post('/crear-categoria', this.data).then(function(res) {
+  var that = this;
+  this._$http.post('/actualizar-categoria', this.data).then(function(res) {
     that._$uibModalInstance.close();
 
-    reloadShop();
-  });*/
-};
+    that._Categories.replace(that._category, res.data);
 
-CategoryModalCtrl.prototype.get = function($http, id) {
-  var that = this;
-  return $http.post('/category/get', {id: id}).then(function(res) {
-    that.data = res.data.category;
+    reloadShop();
   });
 };
-
 
 angular.module('shopApp').component('updateCategory', {
   templateUrl: '/static/scripts/categories/update-category.html',
   bindings: {
     category: '=',
   },
-  controller: function($http, $uibModal) {
+  controller: function($uibModal, $q) {
+    var that = this;
     this.show = function() {
-      $http.post('/category/get', {id: this.category._id}).then(function(res) {
-        CategoryModalCtrl.prototype.data = res.data.category;
-
-        $uibModal.open({
-          templateUrl: '/static/scripts/categories/update-category-modal.html',
-          controller: CategoryModalCtrl,
-          controllerAs: '$ctrl',
-        });
+      $uibModal.open({
+        templateUrl: '/static/scripts/categories/update-category-modal.html',
+        controller: CategoryModalCtrl,
+        controllerAs: '$ctrl',
+        resolve: {
+          'category': $q.resolve(that.category),
+        },
       });
-
-      /*CategoryModalCtrl.prototype.get($http, this.category._id).then(function() {
-        $uibModal.open({
-          templateUrl: '/static/scripts/categories/update-category-modal.html',
-          controller: CategoryModalCtrl,
-          controllerAs: '$ctrl',
-        });
-      });*/
     }
   },
 });

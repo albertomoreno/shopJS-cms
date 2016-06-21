@@ -8,7 +8,7 @@
   <form novalidate ng-submit="$ctrl.submit()" name="form">
     <div class="form-group" ng-class="form.name.$invalid && !form.name.$pristine && 'has-error'">
       <label for="category-name">Nombre</label>
-      <input type="text" id="category-name" name="name" class="form-control input-sm" ng-model="$ctrl.data.name" ng-minlength="4" required unique="/category-check">
+      <input type="text" id="category-name" name="name" class="form-control input-sm" ng-model="$ctrl.data.name" ng-minlength="4" required unique="/category/check/{{$ctrl.data._id}}">
       <ng-messages for="form.name.$error" ng-hide="form.name.$pristine" class="help-block">
         <ng-message when="required">Introduce el nombre de la categoria.</ng-message>
         <ng-message when="minlength">El nombre es demasiado corto.</ng-message>
@@ -23,7 +23,7 @@
       </select>
     </div>
 
-    <input type="hidden" name="id" id="id" ng-model="$ctrl.data.id">
+    <input type="hidden" name="id" id="id" ng-model="$ctrl.data._id">
     <div class="form-group">
       <label for="published">Publicada</label>
       <input type="checkbox" id="published" name="published" class="form-control" ng-model="$ctrl.data.published">

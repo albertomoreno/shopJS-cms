@@ -31,5 +31,24 @@ angular.module('shopApp').service('Categories', function(serverCategories) {
       });
     },
 
+    replace: function(categorySearch, categoryReplace) {
+      for (var i = 0; i < serverCategories.length; i++) {
+        var cat = serverCategories[i];
+        if(cat == categorySearch) {
+          serverCategories[i] = categoryReplace;
+          serverCategories[i].children = cat.children;
+          return;
+        }
+
+        for (var j = 0; j < cat.children.length; j++) {
+          var child = cat.children[j];
+          if(child == categorySearch) {
+            serverCategories[i].children[j] = categoryReplace;
+            return;
+          }
+        }
+      };
+    }
+
   };
 });

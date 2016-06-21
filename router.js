@@ -15,9 +15,9 @@ module.exports = function(app) {
   app.post('/registro', home.postRegister);
 
   app.post('/crear-categoria', category.createCategory);
-  app.post('/category/get', category.get);
-  // app.post('/actualizar-categoria', admin.updateCategory);
+  app.post('/actualizar-categoria', category.updateCategory);
   app.post('/category-check', category.check);
+  app.post('/category/check/:category_id', category.checkUpdate);
 
   app.post('/productos/subir-imagen/:product_id', product.uploadImage);
   app.post('/productos/crear', product.createProduct);
