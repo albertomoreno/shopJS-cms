@@ -15,7 +15,7 @@ module.exports = {
 
     Category.findOne({slug: slug})
       .then(function (category) {
-        Product.find({category: category._id}).then(function (products) {
+        Product.find({category: category._id, published: true}).then(function (products) {
           template.render(req, res, 'product/list', {
             title: 'Productos ' + category.name + ' - ShopJS',
             category: category,
