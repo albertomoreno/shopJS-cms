@@ -7,6 +7,17 @@ angular.module('shopApp').service('Categories', function(serverCategories) {
       return serverCategories;
     },
 
+    getChildren: function() {
+      var children = [];
+      serverCategories.forEach(function (category) {
+        category.children.forEach(function (child) {
+          children.push(child);
+        })
+      });
+
+      return children;
+    },
+
     add: function(category) {
       if(!category.parent) {
         serverCategories.push(category);

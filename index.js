@@ -16,13 +16,23 @@ require('promise/lib/rejection-tracking').enable();
 
 var app = express();
 
+var bp = bodyParser();
+var bpRaw = bodyParser.raw({ type: 'image/*', limit: '2097152' });
+
 // Middlewares
 app.use('/tmp/styles', express.static(path.join(__dirname, 'tmp', 'styles')));
 app.use('/tmp/fonts', express.static(path.join(__dirname, 'tmp', 'fonts')));
 app.use('/tmp/vendor', express.static(path.join(__dirname, 'tmp', 'vendor')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
-app.use(bodyParser());
+// app.use(bodyParser());
+app.use(function (req, res, next) {
+  if(req.method === 'POST' && req.headers['content-type'] && req.headers['content-type'].indexOf('image/') > -1) {
+    return bpRaw(req, res, next);
+  }
+
+  return bp(req, res, next);
+});
 app.use(session({
   secret: 'shopcms',
   cookie: { maxAge: 1000*60*60*24 }, // 1 day

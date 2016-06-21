@@ -3,6 +3,7 @@
 
 angular.module('shopApp').directive('unique', function($http, $q, $timeout) {
   return {
+    restrict: 'A',
     require: 'ngModel',
     link: function(scope, element, attrs, ngModel) {
       var pendingValidation;

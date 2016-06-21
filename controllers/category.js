@@ -2,6 +2,8 @@
 'use strict';
 
 var Category = require('../models/Category');
+var createSlug = require('slug');
+var mongoose = require('mongoose');
 
 
 module.exports = {

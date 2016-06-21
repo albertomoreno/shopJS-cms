@@ -52,6 +52,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
                   <admin-categories></admin-categories>
                 </li>
+                <li><add-product></add-product></li>
               </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -99,48 +100,16 @@
     </div>
   </footer>
 
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="loginLabel">Acceso {{ shop.name }}</h4>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <form method="POST" action="/login" id="loginForm" name="userForm" class="col-sm-6" novalidate>
-              <div class="form-group" ng-class="{ 'has-error': userForm.email.$invalid && !userForm.email.$pristine }">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control input-sm" ng-model="user.email" required>
-                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Intoduce un email correcto</p>
-              </div>
-              <div class="form-group" ng-class="{ 'has-error': userForm.password.$invalid && !userForm.password.$pristine }">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" class="form-control input-sm" ng-model="user.password" ng-minlength="6" required>
-                <p ng-show="userForm.password.$error.minlength" class="help-block">La contraseña debe contener al menos 6 caracteres</p>
-              </div>
-              <label id="login-error" class="label label-danger" style="display: none;">El usuario y la contraseña no coinciden</label>
-              <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Iniciar Sesión</button>
-            </form>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
   <script src="/static/scripts/vendor/jquery.min.js"></script>
   <script src="/static/scripts/vendor/bootstrap.min.js"></script>
-  <script src="/static/scripts/vendor/angular.js"></script>
+  <script src="/node_modules/angular/angular.js"></script>
   <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
   <script src="/node_modules/angular-messages/angular-messages.min.js"></script>
   
   <script src="/static/scripts/app.js"></script>
   <script src="/static/scripts/auth/login.js"></script>
   <script src="/static/scripts/categories/categories.js"></script>
+  <script src="/static/scripts/products/add-product.js"></script>
   <script src="/static/scripts/categories/add-category.js"></script>
   <script src="/static/scripts/categories/update-category.js"></script>
   <script src="/static/scripts/categories/admin-categories.js"></script>

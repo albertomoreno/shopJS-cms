@@ -19,8 +19,11 @@ module.exports = function(app) {
   // app.post('/actualizar-categoria', admin.updateCategory);
   app.post('/category-check', category.check);
 
+  app.post('/productos/subir-imagen/:product_id', product.uploadImage);
+  app.post('/productos/crear', product.createProduct);
   app.get('/productos/:category', product.list);
   app.get('/producto/:slug', product.product);
+  app.post('/product/check', product.check);
 
   app.get('/cambiar-tema/:theme', admin.changeTheme);
   
