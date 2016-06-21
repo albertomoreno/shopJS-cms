@@ -12,7 +12,7 @@
     <div class="col-md-8">
       <h2>{{product.name}}</h2>
       <p>{{product.description}}</p>
-      <p class="product-price">{{product.recommended_price}} €<span class="cross">{{product.price}} €</span></p>
+      <p class="product-price">{{product.price}} €<span class="cross">{{product.recommended_price}} €</span></p>
     </div>
   </div>
 

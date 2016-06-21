@@ -4,6 +4,7 @@
 var template = require('../lib/template.js');
 var Product = require('../models/Product');
 var Category = require('../models/Category');
+var Visit = require('../models/Visit');
 var createSlug = require('slug');
 var mongoose = require('mongoose');
 var fs = require('fs');
@@ -30,10 +31,19 @@ module.exports = {
     var slug = req.params['slug'];
     
     Product.findOne({slug: slug}).then(function (product) {
-      template.render(req, res, 'product/product', {
-        title: product.name + ' - ShopJS',
-        product: product,
-      })
+
+      var visit = new Visit({
+        product: mongoose.Types.ObjectId(product._id),
+        date: new Date()
+      });
+
+      visit.save().then(function (visit) {
+        template.render(req, res, 'product/product', {
+          title: product.name + ' - ShopJS',
+          product: product,
+        });
+      });
+
     });
 
   },
