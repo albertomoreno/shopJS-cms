@@ -14,7 +14,7 @@
       <h3>
         <a href="/producto/{{product.slug}}">{{product.name}}</a>
       </h3>
-      <p>{{product.description}}</p>
+      <p>{{product.description|truncate(300)}}</p>
       <p class="p-price"><span class="cross">{{product.recommended_price}} €</span><span class="price">{{product.price}} €</span></p>
     </div>
   {% endfor %}
