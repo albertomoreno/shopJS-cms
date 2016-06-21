@@ -1,9 +1,10 @@
-
 'use strict';
+
 
 var express = require('express'),
     Admin = require('../models/Admin'),
     Category = require('../models/Category'),
+    Product = require('../models/Product'),
     bcrypt = require('bcryptjs'),
     template = require('../lib/template.js');
 
@@ -16,12 +17,28 @@ module.exports = {
 
       // if not exist admin user
       if(admin.length == 0) {
-        res.redirect('/registro');
-      } else {
-        template.render(req, res, 'home/home', {
-          title: 'ShopJS',
-        });
+        return res.redirect('/registro');
       }
+
+      var recommended_products = [];
+      var new_products = [];
+      Product.find({published: true, recommended_module: true})
+        .then(function (products) {
+          recommended_products = products.sort(function() {
+            return .5 - Math.random();
+          }).slice(0, 8);
+
+          return Product.find({published: true}).sort({date: 'desc'});          
+        }).then(function (new_products) {
+          new_products = new_products;
+
+          template.render(req, res, 'home/home', {
+            title: 'ShopJS',
+            recommended_products: recommended_products,
+            new_products: new_products,
+          });
+        });
+
     });
 
   },

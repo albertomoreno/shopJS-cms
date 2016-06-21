@@ -60,30 +60,30 @@
 
       <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade active in" id="recommended-products">
-          {% for i in [1,2,3,4,5,6,7,8] %}
-            <div class="col-md-3 img-portfolio">
-              <a href="#">
-                <img class="img-responsive img-hover" src="http://placehold.it/700x400&text=Producto" alt="">
+          {% for r_product in recommended_products %}
+            <div class="col-sm-6 col-md-3 img-portfolio">
+              <a href="/producto/{{r_product.slug}}">
+                <img class="img-responsive img-hover" src="/images/products/{{r_product._id}}.jpg" alt="{{r_product.name}}">
               </a>
               <h3>
-                <a href="#">Nombre Producto</a>
+                <a href="/producto/{{r_product.slug}}">{{r_product.name}}</a>
               </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-              <p class="p-price"><span class="cross">30.00 €</span><span class="price">20.00 €</span></p>
+              <p>{{r_product.description|truncate(300)}}</p>
+              <p class="p-price"><span class="cross">{{r_product.recommended_price}} €</span><span class="price">{{r_product.price}} €</span></p>
             </div>
           {% endfor %}
         </div>
         <div class="tab-pane fade" id="news-products">
-          {% for i in [1,2,3,4,5,6,7,8] %}
-            <div class="col-md-3 img-portfolio">
-              <a href="#">
-                <img class="img-responsive img-hover" src="http://placehold.it/700x400&text=Producto" alt="">
+          {% for n_product in new_products %}
+            <div class="col-sm-6 col-md-3 img-portfolio">
+              <a href="/producto/{{n_product.slug}}">
+                <img class="img-responsive img-hover" src="/images/products/{{n_product._id}}.jpg" alt="{{n_product.name}}">
               </a>
               <h3>
-                <a href="#">Nombre Producto</a>
+                <a href="/producto/{{n_product.slug}}">{{n_product.name}}</a>
               </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-              <p class="p-price"><span class="cross">30.00 €</span><span class="price">20.00 €</span></p>
+              <p>{{n_product.description|truncate(300)}}</p>
+              <p class="p-price"><span class="cross">{{n_product.recommended_price}} €</span><span class="price">{{n_product.price}} €</span></p>
             </div>
           {% endfor %}
         </div>
