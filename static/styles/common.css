@@ -228,7 +228,11 @@ input[type=checkbox] {
 }
 
 .page {
-  margin-top: 30px;
+  margin-top: 60px;
+}
+
+.page .page-header {
+  margin-bottom: 0px;
 }
 
 .related-products {
@@ -263,4 +267,12 @@ input[type=checkbox] {
 }
 .nav>li>add-product>a:hover {
   background-color: #eee;
+}
+
+.btn-buy {
+  float: right;
+  font-size: 20px !important;
+}
+.btn-buy i {
+  padding-right: 10px;
 }

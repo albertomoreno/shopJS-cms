@@ -25,6 +25,7 @@ app.use('/tmp/fonts', express.static(path.join(__dirname, 'tmp', 'fonts')));
 app.use('/tmp/vendor', express.static(path.join(__dirname, 'tmp', 'vendor')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 // app.use(bodyParser());
 app.use(function (req, res, next) {
   if(req.method === 'POST' && req.headers['content-type'] && req.headers['content-type'].indexOf('image/') > -1) {

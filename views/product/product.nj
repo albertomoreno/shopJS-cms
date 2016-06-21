@@ -1,17 +1,18 @@
 
 <div class="container page">
   
-  <h1 class="page-header">Nombre <small>Categoria</small></h1>
+  <h1 class="page-header">{{product.name}}
+  <a href="javascript:void(0);" class="btn btn-success btn-buy"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</a>
+  </h1>
 
   <div class="row">
     <div class="col-md-4">
-      <img class="img-responsive" src="http://placehold.it/300x300" alt="">
+      <img class="img-responsive" src="/images/products/{{product._id}}.jpg" alt="{{product.name}}">
     </div>
     <div class="col-md-8">
-      <h2>Nombre de producto</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-      <p class="product-price">20.00 €<span class="cross">30.00 €</span></p>
+      <h2>{{product.name}}</h2>
+      <p>{{product.description}}</p>
+      <p class="product-price">{{product.recommended_price}} €<span class="cross">{{product.price}} €</span></p>
     </div>
   </div>
 

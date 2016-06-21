@@ -1,21 +1,21 @@
 <div class="img-header">
-  <img src="http://placehold.it/1200x400&text=Categoria" alt="">
+  <img src="http://placehold.it/1200x400&text={{category.name}}" alt="">
 </div>
 
 <div class="container">
-  <h1 class="page-header">Categoria</h1>
+  <h1 class="page-header">{{category.name}}</h1>
 
   <div class="product-list">
-  {% for i in [1,2,3,4,5,6,7,8] %}
+  {% for product in products %}
     <div class="col-sm-6 col-md-3 img-portfolio">
-      <a href="#">
-        <img class="img-responsive img-hover" src="http://placehold.it/700x400&text=Producto" alt="">
+      <a href="/producto/{{product.slug}}">
+        <img class="img-responsive img-hover" src="/images/products/{{product._id}}.jpg" alt="{{product.name}}">
       </a>
       <h3>
-        <a href="#">Nombre Producto</a>
+        <a href="/producto/{{product.slug}}">{{product.name}}</a>
       </h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      <p class="p-price"><span class="cross">30.00 €</span><span class="price">20.00 €</span></p>
+      <p>{{product.description}}</p>
+      <p class="p-price"><span class="cross">{{product.recommended_price}} €</span><span class="price">{{product.price}} €</span></p>
     </div>
   {% endfor %}
   </div>
