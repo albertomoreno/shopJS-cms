@@ -13,7 +13,6 @@ module.exports = {
   list: function(req, res) {
     var slug = req.params['category'];
 
-
     Category.findOne({slug: slug})
       .then(function (category) {
         Product.find({category: category._id, published: true}).then(function (products) {
@@ -32,17 +31,26 @@ module.exports = {
     
     Product.findOne({slug: slug}).then(function (product) {
 
-      var visit = new Visit({
-        product: mongoose.Types.ObjectId(product._id),
-        date: new Date()
+      Product.find({category: product.category, _id: {$ne: mongoose.Types.ObjectId(product._id)} }).then(function (products) {
+        var related_products = products.sort(function() {
+          return .5 - Math.random();
+        }).slice(0, 4);
+
+        var visit = new Visit({
+          product: mongoose.Types.ObjectId(product._id),
+          date: new Date()
+        });
+        
+        visit.save().then(function (visit) {
+          template.render(req, res, 'product/product', {
+            title: product.name + ' - ShopJS',
+            product: product,
+            related_products: related_products,
+          });
+        });
+
       });
 
-      visit.save().then(function (visit) {
-        template.render(req, res, 'product/product', {
-          title: product.name + ' - ShopJS',
-          product: product,
-        });
-      });
 
     });
 
