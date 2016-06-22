@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/static/styles/bootstrap.min.css">
   <link rel="stylesheet" href="/static/styles/font-awesome.min.css">
   <link rel="stylesheet" href="/static/styles/common.css">
+  <link rel="stylesheet" href="/static/styles/nv.d3.css">
 
   {% if shop != null %}
     {% if shop.theme != 'default' %}
@@ -53,6 +54,7 @@
                   <admin-categories></admin-categories>
                 </li>
                 <li><add-product></add-product></li>
+                <li><a href="/estadisticas">Estadísticas</a></li>
               </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -105,6 +107,9 @@
   <script src="/node_modules/angular/angular.js"></script>
   <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
   <script src="/node_modules/angular-messages/angular-messages.min.js"></script>
+  <script src="/node_modules/d3/d3.min.js"></script>
+
+  <script src="/static/scripts/nv.d3.js"></script>
   
   <script src="/static/scripts/app.js"></script>
   <script src="/static/scripts/auth/login.js"></script>
@@ -114,6 +119,7 @@
   <script src="/static/scripts/categories/update-category.js"></script>
   <script src="/static/scripts/categories/admin-categories.js"></script>
   <script src="/static/scripts/validators/unique.js"></script>
+  <script src="/static/scripts/stats/stats-chart.js"></script>
   <script src="/static/scripts/reload.js"></script>
   <script src="/static/scripts/main.js"></script>
 

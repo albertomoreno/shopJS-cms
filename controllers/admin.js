@@ -5,10 +5,14 @@ var express = require('express'),
     Shop = require('../models/Shop'),
     Admin = require('../models/Admin'),
     Category = require('../models/Category'),
+    Visit = require('../models/Visit'),
     bcrypt = require('bcryptjs'),
     mongoose = require('mongoose'),
     createSlug = require('slug'),
     template = require('../lib/template.js');
+
+
+var STATS_MINUTES = 40;
 
 
 module.exports = {
@@ -78,6 +82,50 @@ module.exports = {
 
   reloadNavbar: function(req, res) {
     template.render(req, res, 'navbar', null, true);
-  }
+  },
+
+  statistics: function(req, res) {
+    template.render(req, res, 'admin/statistics', {
+      title: 'Estadisticas - ShopJS',
+    });
+  },
+
+  statsData: function(req, res) {
+    var date = new Date();
+    date.setSeconds(0);
+    date.setTime(date.getTime() - (STATS_MINUTES-1)*60*1000);
+
+    Visit.aggregate([
+      {'$match':{'date': {'$gt': date}}},
+      {"$group": {
+        "_id": {
+          "hour": {"$hour": "$date"},
+          "minute": {"$minute": "$date"},
+        },
+        "count": { "$sum": 1 }
+      },
+    }], function (err, result) {
+
+      var visits = [];
+
+      var time = new Date(date.getTime());
+      var current = 0;
+
+      result = result.reverse();
+
+      for (var i = 0; i < STATS_MINUTES; i++) {
+        var count = 0;
+        if(current < result.length && result[current]._id.hour === time.getHours() && result[current]._id.minute === time.getMinutes()) {
+          count = result[current].count;
+          current++;
+        }
+        visits.push({time: time.getTime(), count: count});
+
+        time.setTime(time.getTime()+60*1000);
+      };
+
+      res.json(visits);
+    });
+  },
 };
 

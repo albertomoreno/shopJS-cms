@@ -29,6 +29,8 @@ module.exports = function(app) {
   
   app.get('/reload-navbar', admin.reloadNavbar);
   
+  app.get('/estadisticas', admin.statistics);
+  app.get('/stats/data', admin.statsData);
   app.post('/login', admin.login);
   app.get('/logout', admin.logout);
   
