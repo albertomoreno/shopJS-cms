@@ -5,6 +5,7 @@ var express = require('express'),
     Admin = require('../models/Admin'),
     Category = require('../models/Category'),
     Product = require('../models/Product'),
+    Visit = require('../models/Visit'),
     bcrypt = require('bcryptjs'),
     template = require('../lib/template.js');
 
@@ -20,8 +21,10 @@ module.exports = {
         return res.redirect('/registro');
       }
 
+
       var recommended_products = [];
       var new_products = [];
+      var viewed_products = [];
       Product.find({published: true, recommended_module: true})
         .then(function (products) {
           recommended_products = products.sort(function() {
@@ -32,11 +35,28 @@ module.exports = {
         }).then(function (new_products) {
           new_products = new_products;
 
-          template.render(req, res, 'home/home', {
-            title: 'ShopJS',
-            recommended_products: recommended_products,
-            new_products: new_products,
+          Visit.aggregate([
+            {"$group": {
+              "_id": "$product",
+              "count": { "$sum": 1 }
+            }},
+            { "$sort": { "count": -1 } },
+            { "$limit": 8 }
+          ])
+          .exec(function (err, visits) {
+            Product.populate(visits, {path: '_id'}).then(function (views_products) {
+              viewed_products = views_products;
+              
+              template.render(req, res, 'home/home', {
+                title: 'ShopJS',
+                recommended_products: recommended_products,
+                new_products: new_products,
+                viewed_products: viewed_products,
+              });
+            });
+
           });
+
         });
 
     });

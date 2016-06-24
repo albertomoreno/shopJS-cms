@@ -48,13 +48,13 @@
       </div>
       <ul id="myTab" class="nav nav-tabs nav-justified">
         <li class="active">
-          <a href="#recommended-products" data-toggle="tab"><i class="fa fa-bell"></i>Recomendados</a>
+          <a href="#recommended-products" data-toggle="tab"><i class="fa fa-bell"></i> Recomendados</a>
         </li>
         <li class="">
-          <a href="#news-products" data-toggle="tab"><i class="fa fa-heart"></i>Nuevos</a>
+          <a href="#news-products" data-toggle="tab"><i class="fa fa-heart"></i> Nuevos</a>
         </li>
         <li class="">
-          <a href="#seller-products" data-toggle="tab"><i class="fa fa-star"></i>Mas vendidos</a>
+          <a href="#viewed-products" data-toggle="tab"><i class="fa fa-star"></i> Más vistos</a>
         </li>
       </ul>
 
@@ -87,17 +87,17 @@
             </div>
           {% endfor %}
         </div>
-        <div class="tab-pane fade" id="seller-products">
-          {% for i in [1,2,3,4,5,6,7,8] %}
-            <div class="col-md-3 img-portfolio">
-              <a href="#">
-                <img class="img-responsive img-hover" src="http://placehold.it/700x400&text=Producto" alt="">
+        <div class="tab-pane fade" id="viewed-products">
+          {% for v_product in viewed_products %}
+            <div class="col-sm-6 col-md-3 img-portfolio">
+              <a href="/producto/{{v_product._id.slug}}">
+                <img class="img-responsive img-hover" src="/images/products/{{v_product._id._id}}.jpg" alt="{{v_product._id.name}}">
               </a>
               <h3>
-                <a href="#">Nombre Producto</a>
+                <a href="/producto/{{v_product._id.slug}}">{{v_product._id.name}}</a>
               </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-              <p class="p-price"><span class="cross">30.00 €</span><span class="price">20.00 €</span></p>
+              <p>{{v_product._id.description|truncate(300)}}</p>
+              <p class="p-price"><span class="cross">{{v_product._id.recommended_price}} €</span><span class="price">{{v_product._id.price}} €</span></p>
             </div>
           {% endfor %}
         </div>
