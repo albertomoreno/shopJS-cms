@@ -166,6 +166,7 @@ module.exports = {
 
     var data = req.body;
     data.slug = createSlug(data.name, {lower: true});
+    data.content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure veniam maiores, earum, enim, tenetur vero inventore assumenda accusantium tempora aliquid maxime delectus dolorem molestias sunt soluta laboriosam. Obcaecati, temporibus, vero.'
 
     var page = new Page(data);
     return page.save().then(function(page) {

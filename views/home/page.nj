@@ -5,6 +5,15 @@
 <div class="container">
   <h1 class="page-header">{{page.name}}</h1>
 
-  {{page.content}}
-
+  <div contenteditable="true" id="page-content">
+    {{page.content}}
+  </div>
 </div>
+
+
+<script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
+{% if user != null %}
+  <script>
+    CKEDITOR.inline('page-content');
+  </script>
+{% endif %}
