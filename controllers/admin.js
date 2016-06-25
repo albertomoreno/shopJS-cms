@@ -4,6 +4,7 @@
 var express = require('express'),
     Shop = require('../models/Shop'),
     Admin = require('../models/Admin'),
+    Product = require('../models/Product'),
     Category = require('../models/Category'),
     Visit = require('../models/Visit'),
     bcrypt = require('bcryptjs'),
@@ -85,9 +86,29 @@ module.exports = {
   },
 
   statistics: function(req, res) {
-    template.render(req, res, 'admin/statistics', {
-      title: 'Estadisticas - ShopJS',
+
+    Visit.aggregate([
+      {"$group": {
+        "_id": "$product",
+        "count": { "$sum": 1 }
+      }},
+      { "$sort": { "count": -1 } },
+      { "$limit": 8 }
+    ])
+    .exec(function (err, visits) {
+      Product.populate(visits, {path: '_id'}).then(function (views_products) {
+
+        var products = views_products;
+
+        template.render(req, res, 'admin/statistics', {
+          title: 'Estadisticas - ShopJS',
+          products: products,
+        });
+        
+      });
+
     });
+
   },
 
   statsData: function(req, res) {

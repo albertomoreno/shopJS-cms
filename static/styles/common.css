@@ -281,3 +281,12 @@ input[type=checkbox] {
   height: 400px;
   margin-bottom: 30px;
 }
+
+.table-products {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.table-products th {
+  text-align: center;
+}

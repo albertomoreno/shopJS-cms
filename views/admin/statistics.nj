@@ -1,6 +1,29 @@
 
 <div class="container page">
   
+  <h1>Gráfica</h1>
   <stats-chart></stats-chart>
+
+  <h1>Productos más visitados</h1>
+  <table class="table table-hover table-bordered table-striped table-products">
+    <tr>
+      <th>Nombre</th>
+      <th>Publicado</th>
+      <th>Precio</th>
+      <th>Precio recomendado</th>
+      <th>Recomendado</th>
+      <th>Visitas</th>
+    </tr>
+    {% for product in products %}
+      <tr>
+        <td>{{product._id.name}}</td>
+        <td>{% if product._id.published %} SI {% else %} NO {% endif %}</td>
+        <td>{{product._id.price}} €</td>
+        <td>{{product._id.recommended_price}} €</td>
+        <td>{% if product._id.recommended_module %} SI {% else %} NO {% endif %}</td>
+        <td>{{product.count}}</td>
+      </tr>
+    {% endfor %}
+  </table>
 
 </div>

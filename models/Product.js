@@ -4,9 +4,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var Category = require('./Category');
+
 var schema = new Schema({
   name: { type: String, required: true, unique: true  },
-  category: { type: Schema.Types.ObjectId},
+  category: { type: Schema.Types.ObjectId, ref: 'Category'},
   published: { type: Boolean, required: true },
   slug: { type: String, required: true },
   price: { type: Number, required: true },
