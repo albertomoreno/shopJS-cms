@@ -6,6 +6,7 @@ var express = require('express'),
     Admin = require('../models/Admin'),
     Product = require('../models/Product'),
     Category = require('../models/Category'),
+    Page = require('../models/Page'),
     Visit = require('../models/Visit'),
     bcrypt = require('bcryptjs'),
     mongoose = require('mongoose'),
@@ -148,5 +149,29 @@ module.exports = {
       res.json(visits);
     });
   },
+
+  pageCheck: function(req, res) {
+    var value = req.body.value;
+
+    return Page.find({name: value})
+      .then(function(pages) {
+        if(pages.length) {
+          res.json({unique: false});
+        }
+        res.json({unique: true});
+      });
+  },
+
+  createPage: function(req, res) {
+
+    var data = req.body;
+    data.slug = createSlug(data.name, {lower: true});
+
+    var page = new Page(data);
+    return page.save().then(function(page) {
+      res.json(page);
+    });
+  }
+
 };
 

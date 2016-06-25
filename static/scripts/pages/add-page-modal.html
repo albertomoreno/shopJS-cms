@@ -1,0 +1,25 @@
+
+<div class="modal-header">
+  <button type="button" class="close" ng-click="$close()">&times;</button>
+  <h4 class="modal-title">Nueva página</h4>
+</div>
+
+<div class="modal-body">
+  <form novalidate ng-submit="$ctrl.submit()" name="form">
+    <div class="form-group" ng-class="form.name.$invalid && !form.name.$pristine && 'has-error'">
+      <label for="page-name">Nombre</label>
+      <input type="text" id="page-name" name="name" class="form-control input-sm" ng-model="$ctrl.data.name" ng-minlength="3" required unique="/pages/check">
+      <ng-messages for="form.name.$error" ng-hide="form.name.$pristine" class="help-block">
+        <ng-message when="required">Introduce el nombre de la categoria.</ng-message>
+        <ng-message when="minlength">El nombre es demasiado corto.</ng-message>
+        <ng-message when="unique">Ya existe una categoria con ese nombre.</ng-message>
+      </ng-messages>
+    </div>
+
+    <button class="btn btn-primary" ng-disabled="form.$invalid">Guardar</button>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$close()">Cerrar</button>
+</div>

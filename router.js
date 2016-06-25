@@ -7,9 +7,9 @@ var home = require('./controllers/home'),
 
 
 module.exports = function(app) {
-  app.get('/terminos-condiciones', content.terms);
-  app.get('/cookies', content.cookies);
-  app.get('/faq', content.faq);
+  // app.get('/terminos-condiciones', content.terms);
+  // app.get('/cookies', content.cookies);
+  // app.get('/faq', content.faq);
 
   app.get('/registro', home.register);
   app.post('/registro', home.postRegister);
@@ -25,6 +25,9 @@ module.exports = function(app) {
   app.get('/producto/:slug', product.product);
   app.post('/product/check', product.check);
 
+  app.post('/pages/check', admin.pageCheck);
+  app.post('/pages/create', admin.createPage);
+
   app.get('/cambiar-tema/:theme', admin.changeTheme);
   
   app.get('/reload-navbar', admin.reloadNavbar);
@@ -33,6 +36,9 @@ module.exports = function(app) {
   app.get('/stats/data', admin.statsData);
   app.post('/login', admin.login);
   app.get('/logout', admin.logout);
+
+
+  app.get('/:pageSlug', home.page);
   
   app.get('/', home.home);
 };

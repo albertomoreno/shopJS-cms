@@ -54,6 +54,7 @@
                   <admin-categories></admin-categories>
                 </li>
                 <li><add-product></add-product></li>
+                <li><add-page></add-page></li>
                 <li><a href="/estadisticas">Estadísticas</a></li>
               </ul>
             </div>
@@ -78,18 +79,9 @@
     <div class="container">
       <div class="row">
         <ul class="footer-items">
-          <li>
-            <a href="#">Sobre Nosotros</a>
-          </li>
-          <li>
-            <a href="/terminos-condiciones">Terminos y Condiciones</a>
-          </li>
-          <li>
-            <a href="/cookies">Politica y Cookies</a>
-          </li>
-          <li>
-            <a href="/faq">FAQ's</a>
-          </li>
+          {% for page in pages %}
+            <li><a href="/{{page.slug}}">{{page.name}}</a></li>
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -115,6 +107,7 @@
   <script src="/static/scripts/auth/login.js"></script>
   <script src="/static/scripts/categories/categories.js"></script>
   <script src="/static/scripts/products/add-product.js"></script>
+  <script src="/static/scripts/pages/add-page.js"></script>
   <script src="/static/scripts/categories/add-category.js"></script>
   <script src="/static/scripts/categories/update-category.js"></script>
   <script src="/static/scripts/categories/admin-categories.js"></script>

@@ -1,0 +1,10 @@
+<div class="img-header">
+  <img src="http://placehold.it/1200x400&text={{page.name}}" alt="">
+</div>
+
+<div class="container">
+  <h1 class="page-header">{{page.name}}</h1>
+
+  {{page.content}}
+
+</div>

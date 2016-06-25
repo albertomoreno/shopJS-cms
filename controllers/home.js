@@ -4,6 +4,7 @@
 var express = require('express'),
     Admin = require('../models/Admin'),
     Category = require('../models/Category'),
+    Page = require('../models/Page'),
     Product = require('../models/Product'),
     Visit = require('../models/Visit'),
     bcrypt = require('bcryptjs'),
@@ -91,7 +92,20 @@ module.exports = {
       res.redirect('/');
     });
 
+  },
+
+  page: function(req, res) {
+
+    var slug = req.params['pageSlug'];
+
+    Page.findOne({slug: slug}).then(function (page) {
+      template.render(req, res, 'home/page', {
+        title: page.name + ' - ShopJS',
+        page: page,
+      });
+    });
   }
+
 };
 
 
