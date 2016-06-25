@@ -2,8 +2,7 @@
 var home = require('./controllers/home'),
     admin = require('./controllers/admin'),
     category = require('./controllers/category'),
-    product = require('./controllers/product'),
-    content = require('./controllers/content');
+    product = require('./controllers/product');
 
 
 module.exports = function(app) {
