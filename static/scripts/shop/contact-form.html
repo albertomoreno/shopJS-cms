@@ -1,0 +1,28 @@
+
+<form novalidate ng-submit="$ctrl.submit()" name="form">
+  <div class="form-group" ng-class="form.name.$invalid && !form.name.$pristine && 'has-error'">
+    <label for="contact-name">Nombre</label>
+    <input type="text" id="contact-name" name="name" class="form-control input-sm" ng-model="$ctrl.data.name" required>
+    <ng-messages for="form.name.$error" ng-hide="form.name.$pristine" class="help-block">
+      <ng-message when="required">Introduzca su nombre.</ng-message>
+    </ng-messages>
+  </div>
+
+  <div class="form-group" ng-class="form.email.$invalid && !form.email.$pristine && 'has-error'">
+    <label for="contact-email">Email</label>
+    <input type="email" id="contact-email" name="email" class="form-control input-sm" ng-model="$ctrl.data.email" required>
+    <ng-messages for="form.email.$error" ng-hide="form.email.$pristine" class="help-block">
+      <ng-message when="email">Introduzca un email correcto.</ng-message>
+    </ng-messages>
+  </div>
+
+  <div class="form-group" ng-class="form.message.$invalid && !form.message.$pristine && 'has-error'">
+    <label for="contact-message">Mensaje</label>
+    <textarea rows="5" type="text" id="contact-message" name="message" class="form-control input-sm" ng-model="$ctrl.data.message" required></textarea>
+    <ng-messages for="form.message.$error" ng-hide="form.message.$pristine" class="help-block">
+      <ng-message when="required">Introduzca un mensaje.</ng-message>
+    </ng-messages>
+  </div>
+
+  <button class="btn btn-primary" ng-disabled="form.$invalid">Enviar</button>
+</form>

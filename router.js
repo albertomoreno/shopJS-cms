@@ -33,6 +33,8 @@ module.exports = function(app) {
   app.get('/logout', admin.logout);
 
   app.post('/tienda/actualizar', admin.updateShop);
+  app.get('/contacto', home.contact);
+  app.post('/contacto', home.sendEmail);
 
   app.get('/:pageSlug', home.page);
   

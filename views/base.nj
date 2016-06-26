@@ -116,6 +116,7 @@
   <script src="/static/scripts/validators/unique.js"></script>
   <script src="/static/scripts/stats/stats-chart.js"></script>
   <script src="/static/scripts/shop/update-shop.js"></script>
+  <script src="/static/scripts/shop/contact-form.js"></script>
   <script src="/static/scripts/reload.js"></script>
   <script src="/static/scripts/main.js"></script>
 

@@ -42,7 +42,7 @@
         </ul>
       </li>
       <li>
-        <a href="#">Contacto</a>
+        <a href="/contacto">Contacto</a>
       </li>
       <li id="login-button" style="display:{% if user != null %} none{% else %} block{% endif %}">
         <login></login>

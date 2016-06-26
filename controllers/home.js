@@ -6,6 +6,7 @@ var express = require('express'),
     Category = require('../models/Category'),
     Page = require('../models/Page'),
     Product = require('../models/Product'),
+    Shop = require('../models/Shop'),
     Visit = require('../models/Visit'),
     bcrypt = require('bcryptjs'),
     template = require('../lib/template.js');
@@ -103,6 +104,44 @@ module.exports = {
         title: page.name,
         page: page,
       });
+    });
+  },
+
+  contact: function(req, res) {
+
+    template.render(req, res, 'home/contact', {
+      title: 'Contacto',
+    });
+
+  },
+
+  sendEmail: function(req, res) {
+
+    var data = req.body;
+
+    Shop.findOne({}).then(function (shop) {
+
+      var message = "El usuario " + data.name + " con email " + data.email + " se pone en contacto con usted con el siguiente mensaje: \n";
+      message += data.message;
+
+      var sendgrid = require('sendgrid').mail;
+      var from = new sendgrid.Email(shop.email);
+      var to = new sendgrid.Email(shop.email);
+      var subject = shop.name + ': Petición de contacto';
+      var content = new sendgrid.Content("text/plain", message);
+      var mail = new sendgrid.Mail(from, subject, to, content);
+
+      var sg = require('sendgrid').SendGrid(process.env.SENDGRID_API_KEY);
+      var requestBody = mail.toJSON();
+      var request = sg.emptyRequest();
+      request.method = 'POST';
+      request.path = '/v3/mail/send';
+      request.body = requestBody;
+      sg.API(request, function (response) {
+        
+        res.json({result: true});
+      });
+
     });
   }
 

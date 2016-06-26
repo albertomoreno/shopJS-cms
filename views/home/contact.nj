@@ -1,0 +1,55 @@
+
+{% if shop.latitude.length and shop.longitude.length %}
+  <div id="map"></div>
+  <script>
+    function initMap() {
+      var mapDiv = document.getElementById('map');
+      var map = new google.maps.Map(mapDiv, {
+        center: {lat: {{shop.latitude}}, lng: {{shop.longitude}}},
+        zoom: 16,
+        scrollwheel: false,
+        draggable: false,
+      });
+
+      new google.maps.Marker({
+        position: new google.maps.LatLng({{shop.latitude}}, {{shop.longitude}}),
+        title: '{{shop.name}}',
+        map: map,
+      });
+    }
+  </script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+  </script>
+{% else %}
+  <div class="img-header">
+    <img src="http://placehold.it/1200x400&text=Contacto" alt="">
+  </div>
+{% endif %}
+
+<div class="container">
+  <div class="col-md-8">
+    <h1 class="page-header">Formulario de contacto</h1>
+
+    <contact-form></contact-form>
+  </div>
+
+  <div class="col-md-4">
+    <h1 class="page-header">Contacto</h1>
+
+    <ul class="shop-data">
+      {% if shop.address.length %}
+        <li><i class="fa fa-home"></i> {{shop.address}}</li>
+      {% endif %}
+      {% if shop.email.length %}
+        <li><i class="fa fa-envelope"></i> {{shop.email}}</li>
+      {% endif %}
+      {% if shop.phone.length %}
+        <li><i class="fa fa-phone"></i> {{shop.phone}}</li>
+      {% endif %}
+    </ul>
+  </div>
+  
+</div>
+
+

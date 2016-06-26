@@ -44,6 +44,7 @@
     "mongoose": "^4.4.12",
     "nunjucks": "^2.0.0",
     "promise": "^7.1.1",
+    "sendgrid": "^3.0.5",
     "slug": "^0.9.1"
   }
 }
