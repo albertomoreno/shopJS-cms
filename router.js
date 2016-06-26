@@ -32,6 +32,7 @@ module.exports = function(app) {
   app.post('/login', admin.login);
   app.get('/logout', admin.logout);
 
+  app.post('/tienda/actualizar', admin.updateShop);
 
   app.get('/:pageSlug', home.page);
   

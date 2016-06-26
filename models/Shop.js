@@ -10,6 +10,11 @@ var schema = new Schema({
   name: { type: String},
   theme: { type: String },
   navbar_inverse: { type: Boolean },
+  address: { type: String },
+  email: { type: String },
+  phone: { type: String },
+  latitude: { type: String },
+  longitude: { type: String },
 });
 
 // the schema is useless so far

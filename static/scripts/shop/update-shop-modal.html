@@ -1,0 +1,54 @@
+
+<div class="modal-header">
+  <button type="button" class="close" ng-click="$close()">&times;</button>
+  <h4 class="modal-title">Datos tienda</h4>
+</div>
+
+<div class="modal-body">
+  <form novalidate ng-submit="$ctrl.submit()" name="form">
+    <div class="form-group" ng-class="form.name.$invalid && !form.name.$pristine && 'has-error'">
+      <label for="shop-name">Nombre</label>
+      <input type="text" id="shop-name" name="name" class="form-control input-sm" ng-model="$ctrl.data.name" ng-minlength="4" required>
+      <ng-messages for="form.name.$error" ng-hide="form.name.$pristine" class="help-block">
+        <ng-message when="required">Introduce el nombre de la tienda.</ng-message>
+        <ng-message when="minlength">El nombre es demasiado corto.</ng-message>
+      </ng-messages>
+    </div>
+
+    <div class="form-group" ng-class="form.address.$invalid && !form.address.$pristine && 'has-error'">
+      <label for="shop-address">Dirección</label>
+      <input type="text" id="shop-address" name="address" class="form-control input-sm" ng-model="$ctrl.data.address">
+    </div>
+
+    <div class="form-group" ng-class="form.email.$invalid && !form.email.$pristine && 'has-error'">
+      <label for="shop-email">Email</label>
+      <input type="email" id="shop-email" name="email" class="form-control input-sm" ng-model="$ctrl.data.email">
+      <ng-messages for="form.email.$error" ng-hide="form.email.$pristine" class="help-block">
+        <ng-message when="email">Introduce un email correcto.</ng-message>
+      </ng-messages>
+    </div>
+
+    <div class="form-group" ng-class="form.phone.$invalid && !form.phone.$pristine && 'has-error'">
+      <label for="shop-phone">Teléfono</label>
+      <input type="text" id="shop-phone" name="phone" class="form-control input-sm" ng-model="$ctrl.data.phone">
+    </div>
+
+    <div class="form-group" ng-class="form.latitude.$invalid && !form.latitude.$pristine && 'has-error'">
+      <label for="shop-latitude">Latitud</label>
+      <input type="text" id="shop-latitude" name="latitude" class="form-control input-sm" ng-model="$ctrl.data.latitude">
+    </div>
+
+    <div class="form-group" ng-class="form.longitude.$invalid && !form.longitude.$pristine && 'has-error'">
+      <label for="shop-longitude">Longitud</label>
+      <input type="text" id="shop-longitude" name="longitude" class="form-control input-sm" ng-model="$ctrl.data.longitude">
+    </div>
+
+    <input type="hidden" name="theme" id="theme" ng-model="$ctrl.data.theme">
+
+    <button class="btn btn-primary" ng-disabled="form.$invalid">Guardar</button>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$close()">Cerrar</button>
+</div>

@@ -253,12 +253,14 @@ input[type=checkbox] {
 }
 
 @media (min-width: 768px) {
+  .nav>li>update-shop>a,
   .nav>li>add-page>a,
   .nav>li>add-product>a {
     padding-top: 15px !important;
     padding-bottom: 15px !important;
   }
 }
+.nav>li>update-shop>a,
 .nav>li>add-page>a,
 .nav>li>add-product>a {
   position: relative;
@@ -267,6 +269,7 @@ input[type=checkbox] {
   text-decoration: none;
   cursor: pointer;
 }
+.nav>li>update-shop>a:hover,
 .nav>li>add-product>a:hover,
 .nav>li>add-page>a:hover {
   background-color: #eee;

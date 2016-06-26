@@ -7,6 +7,7 @@ var express = require('express'),
     Product = require('../models/Product'),
     Category = require('../models/Category'),
     Page = require('../models/Page'),
+    Shop = require('../models/Shop'),
     Visit = require('../models/Visit'),
     bcrypt = require('bcryptjs'),
     mongoose = require('mongoose'),
@@ -172,6 +173,30 @@ module.exports = {
     return page.save().then(function(page) {
       res.json(page);
     });
+  }, 
+
+  updateShop: function(req, res) {
+
+    var data = req.body;
+
+    console.log(data);
+
+    return Shop.findOne({})
+      .then(function (shop) {
+
+        shop.name = data.name;
+        shop.address = data.address;
+        shop.email = data.email;
+        shop.phone = data.phone;
+        shop.latitude = data.latitude;
+        shop.longitude = data.longitude;
+
+        return shop.save();
+      })
+      .then(function (shop) {
+        return res.json(shop);
+      });
+
   }
 
 };
