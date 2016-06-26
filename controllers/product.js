@@ -139,5 +139,15 @@ module.exports = {
         return res.json(product);
       });
   },
+
+  unpublishedList: function(req, res) {
+    Product.find({published: false}).then(function (products) {
+      template.render(req, res, 'product/list', {
+        title: 'Productos no publicados',
+        category: null,
+        products: products,
+      });
+    });
+  }
 };
 

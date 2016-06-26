@@ -17,6 +17,7 @@ module.exports = function(app) {
   app.post('/productos/subir-imagen/:product_id', product.uploadImage);
   app.post('/productos/crear', product.createProduct);
   app.post('/productos/actualizar', product.updateProduct);
+  app.get('/productos/no-publicados', product.unpublishedList);
   app.get('/productos/:category', product.list);
   app.get('/producto/:slug', product.product);
   app.post('/product/check', product.check);

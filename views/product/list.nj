@@ -1,9 +1,9 @@
 <div class="img-header">
-  <img src="http://placehold.it/1200x400&text={{category.name}}" alt="">
+  <img src="http://placehold.it/1200x400&text={% if category != null %} {{category.name}} {% else %} No publicados {% endif %}" alt="">
 </div>
 
 <div class="container">
-  <h1 class="page-header">{{category.name}}</h1>
+  <h1 class="page-header">{% if category != null %} {{category.name}} {% else %} No publicados {% endif %}</h1>
 
   <div class="product-list">
   {% for product in products %}

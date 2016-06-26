@@ -55,6 +55,7 @@
                   <admin-categories></admin-categories>
                 </li>
                 <li><add-product></add-product></li>
+                <li><a href="/productos/no-publicados">Productos no publicados</a></li>
                 <li><add-page></add-page></li>
                 <li><a href="/estadisticas">Estadísticas</a></li>
               </ul>

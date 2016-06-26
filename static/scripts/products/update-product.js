@@ -1,7 +1,7 @@
 'use strict';
 
 
-var ProductModalCtrl = function($http, $uibModalInstance, Categories, product, $timeout) {
+var UpdateProductModalCtrl = function($http, $uibModalInstance, Categories, product, $timeout) {
   this._$http = $http;
   this._$uibModalInstance = $uibModalInstance;
   this._Categories = Categories;
@@ -15,7 +15,7 @@ var ProductModalCtrl = function($http, $uibModalInstance, Categories, product, $
 };
 
 
-ProductModalCtrl.prototype.submit = function() {
+UpdateProductModalCtrl.prototype.submit = function() {
   var that = this;
 
   this._$http.post('/productos/actualizar', this.data).then(function(res) {
@@ -36,7 +36,7 @@ angular.module('shopApp').component('updateProduct', {
     this.show = function() {
       $uibModal.open({
         templateUrl: '/static/scripts/products/update-product-modal.html',
-        controller: ProductModalCtrl,
+        controller: UpdateProductModalCtrl,
         controllerAs: '$ctrl',
         resolve: {
           'product': $q.resolve(that.product),
