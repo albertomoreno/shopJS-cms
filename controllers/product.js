@@ -17,7 +17,7 @@ module.exports = {
       .then(function (category) {
         Product.find({category: category._id, published: true}).then(function (products) {
           template.render(req, res, 'product/list', {
-            title: 'Productos ' + category.name + ' - ShopJS',
+            title: 'Productos ' + category.name,
             category: category,
             products: products,
           });
@@ -43,7 +43,7 @@ module.exports = {
         
         visit.save().then(function (visit) {
           template.render(req, res, 'product/product', {
-            title: product.name + ' - ShopJS',
+            title: product.name,
             product: product,
             related_products: related_products,
           });

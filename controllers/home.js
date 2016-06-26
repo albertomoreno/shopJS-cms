@@ -49,7 +49,7 @@ module.exports = {
               viewed_products = views_products;
               
               template.render(req, res, 'home/home', {
-                title: 'ShopJS',
+                title: 'Inicio',
                 recommended_products: recommended_products,
                 new_products: new_products,
                 viewed_products: viewed_products,
@@ -100,7 +100,7 @@ module.exports = {
 
     Page.findOne({slug: slug}).then(function (page) {
       template.render(req, res, 'home/page', {
-        title: page.name + ' - ShopJS',
+        title: page.name,
         page: page,
       });
     });

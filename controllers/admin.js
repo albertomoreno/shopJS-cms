@@ -103,7 +103,7 @@ module.exports = {
         var products = views_products;
 
         template.render(req, res, 'admin/statistics', {
-          title: 'Estadisticas - ShopJS',
+          title: 'Estadisticas',
           products: products,
         });
         
