@@ -4365,6 +4365,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     padding-top: 12px;
     padding-bottom: 12px;
   }
+  .navbar-nav > li > add-page > a, 
+  .navbar-nav > li > add-product > a, 
+  .navbar-nav > li > update-shop > a, 
   .navbar-nav > li > login > a {
     padding-top: 12px;
     padding-bottom: 12px;

@@ -179,8 +179,6 @@ module.exports = {
 
     var data = req.body;
 
-    console.log(data);
-
     return Shop.findOne({})
       .then(function (shop) {
 
