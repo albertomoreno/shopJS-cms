@@ -267,7 +267,7 @@ input[type=checkbox] {
 .nav>li>add-product>a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 15px 15px;
   text-decoration: none;
   cursor: pointer;
 }
