@@ -1,0 +1,66 @@
+
+<div class="modal-header">
+  <button type="button" class="close" ng-click="$close()">&times;</button>
+  <h4 class="modal-title">Producto</h4>
+</div>
+
+<div class="modal-body">
+  <form novalidate ng-submit="$ctrl.submit()" name="form" enctype="multipart/form-data">
+    <input type="hidden" name="id" id="id" ng-model="$ctrl.data.id">
+    <div class="form-group" ng-class="form.name.$invalid && !form.name.$pristine && 'has-error'">
+      <label for="product-name">Nombre</label>
+      <input type="text" id="product-name" name="name" class="form-control input-sm" ng-model="$ctrl.data.name" ng-minlength="4" required unique="/product/update-check/{{$ctrl.data._id}}">
+      <ng-messages for="form.name.$error" ng-hide="form.name.$pristine" class="help-block">
+        <ng-message when="required">Introduce el nombre de la categoria.</ng-message>
+        <ng-message when="minlength">El nombre es demasiado corto.</ng-message>
+        <ng-message when="unique">Ya existe un producto con ese nombre.</ng-message>
+      </ng-messages>
+    </div>
+
+    <div class="form-group" ng-class="form.category.$invalid && !form.category.$pristine && 'has-error'">
+      <label for="category">Categoria</label>
+      <select name="category" id="category" class="form-control input-sm" ng-model="$ctrl.data.category" ng-options="category._id as category.name for category in $ctrl.categories">
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="published">Publicada</label>
+      <input type="checkbox" id="published" name="published" class="form-control" ng-model="$ctrl.data.published">
+    </div>
+
+    <div class="form-group" ng-class="form.price.$invalid && !form.price.$pristine && 'has-error'">
+      <label for="price">Precio</label>
+      <input type="number" min="0" id="price" name="price" class="form-control" ng-model="$ctrl.data.price" required>
+      <ng-messages for="form.price.$error" ng-hide="form.price.$pristine" class="help-block">
+        <ng-message when="required">Introduce el precio del producto.</ng-message>
+      </ng-messages>
+    </div>
+
+    <div class="form-group" ng-class="form.recommended_price.$invalid && !form.recommended_price.$pristine && 'has-error'">
+      <label for="recommended_price">Precio recomendado</label>
+      <input type="number" min="0" id="recommended_price" name="recommended_price" class="form-control" ng-model="$ctrl.data.recommended_price" required>
+      <ng-messages for="form.recommended_price.$error" ng-hide="form.recommended_price.$pristine" class="help-block">
+        <ng-message when="required">Introduce el precio recomendado del producto.</ng-message>
+      </ng-messages>
+    </div>
+
+    <div class="form-group" ng-class="form.description.$invalid && !form.description.$pristine && 'has-error'">
+      <label for="description">Descripción</label>
+      <textarea rows="5" id="description" name="description" class="form-control" ng-model="$ctrl.data.description" required></textarea>
+      <ng-messages for="form.description.$error" ng-hide="form.description.$pristine" class="help-block">
+        <ng-message when="required">Introduce la descripción del producto.</ng-message>
+      </ng-messages>
+    </div>
+
+    <div class="form-group">
+      <label for="recommended_module">Recomendado</label>
+      <input type="checkbox" id="recommended_module" name="recommended_module" class="form-control" ng-model="$ctrl.data.recommended_module">
+    </div>
+
+    <button class="btn btn-primary" ng-disabled="form.$invalid">Guardar</button>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$close()">Cerrar</button>
+</div>

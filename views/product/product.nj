@@ -1,6 +1,9 @@
 
 <div class="container page">
   
+  {% if user != null %}
+    <update-product product='{{product|dump|safe}}'></update-product>
+  {% endif %}
   <h1 class="page-header">{{product.name}}
   <a href="javascript:void(0);" class="btn btn-success btn-buy"><i class="fa fa-shopping-cart"></i>Añadir a la cesta</a>
   </h1>

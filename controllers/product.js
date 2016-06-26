@@ -102,5 +102,42 @@ module.exports = {
     });
     
   },
+
+  updateCheck: function(req, res) {
+    var product_id = req.params['product'];
+    var value = req.body.value;
+
+    return Product.find({name: value, _id: {$ne: mongoose.Types.ObjectId(product_id)} })
+      .then(function(products) {
+        if(products.length ) {
+
+          res.json({unique: false});
+        }
+        res.json({unique: true});
+      });
+  },
+
+  updateProduct: function(req, res) {
+    var data = req.body;
+    var id = data._id;
+
+    return Product.findById(id)
+      .then(function (product) {
+
+        product.name = data.name;
+        product.category = data.category;
+        product.slug = createSlug(data.name, {lower: true});
+        product.published = !!data.published;
+        product.recommended_module = !!data.recommended_module;
+        product.price = data.price;
+        product.recommended_price = data.recommended_price;
+        product.description = data.description;
+
+        return product.save();
+      })
+      .then(function (product) {
+        return res.json(product);
+      });
+  },
 };
 

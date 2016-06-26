@@ -109,6 +109,7 @@
   <script src="/static/scripts/categories/categories.js"></script>
   <script src="/static/scripts/shop/shop.js"></script>
   <script src="/static/scripts/products/add-product.js"></script>
+  <script src="/static/scripts/products/update-product.js"></script>
   <script src="/static/scripts/pages/add-page.js"></script>
   <script src="/static/scripts/categories/add-category.js"></script>
   <script src="/static/scripts/categories/update-category.js"></script>
