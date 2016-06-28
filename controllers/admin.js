@@ -173,7 +173,25 @@ module.exports = {
     return page.save().then(function(page) {
       res.json(page);
     });
-  }, 
+  },
+
+  updatePage: function(req, res) {
+
+    var page_id = req.params['page'];
+
+    var content = req.body.content;
+
+    Page.findById(page_id)
+      .then(function (page) {
+        page.content = content;
+
+        return page.save();
+      })
+      .then(function (updated_page) {
+        res.json({result: true});
+      });
+
+  },
 
   updateShop: function(req, res) {
 

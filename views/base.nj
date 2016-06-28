@@ -104,6 +104,7 @@
   <script src="/node_modules/d3/d3.min.js"></script>
 
   <script src="/static/scripts/nv.d3.js"></script>
+  <script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
   
   <script src="/static/scripts/app.js"></script>
   <script src="/static/scripts/auth/login.js"></script>
@@ -112,6 +113,7 @@
   <script src="/static/scripts/products/add-product.js"></script>
   <script src="/static/scripts/products/update-product.js"></script>
   <script src="/static/scripts/pages/add-page.js"></script>
+  <script src="/static/scripts/pages/page-content.js"></script>
   <script src="/static/scripts/categories/add-category.js"></script>
   <script src="/static/scripts/categories/update-category.js"></script>
   <script src="/static/scripts/categories/admin-categories.js"></script>

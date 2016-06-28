@@ -5,16 +5,10 @@
 <div class="container">
   <h1 class="page-header">{{page.name}}</h1>
 
-  <div {% if user != null %} contenteditable="true" {% else %} contenteditable="false" {% endif %} id="page-content">
-    {{page.content}}
-  </div>
+  {% if user != null %}
+    <page-content page="{{page._id|dump}}">{{page.content|safe}}</page-content>
+  {% else %}
+    <div>{{page.content|safe}}</div>
+  {% endif %}
 </div>
 
-
-
-{% if user != null %}
-  <script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
-  <script>
-    CKEDITOR.inline('page-content');
-  </script>
-{% endif %}

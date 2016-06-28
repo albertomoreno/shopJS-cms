@@ -25,6 +25,7 @@ module.exports = function(app) {
 
   app.post('/pages/check', admin.pageCheck);
   app.post('/pages/create', admin.createPage);
+  app.post('/pages/update/:page', admin.updatePage);
 
   app.get('/cambiar-tema/:theme', admin.changeTheme);
   
