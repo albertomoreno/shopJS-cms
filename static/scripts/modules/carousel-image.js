@@ -19,7 +19,7 @@ CarouselModalCtrl.prototype.submit = function() {
     if (this.status === 200) {
       that._$timeout(function () {
         that._$uibModalInstance.close();
-        reloadShop();
+        location.reload();
       });
     }
   };
