@@ -1,18 +1,19 @@
 
 'use strict';
 
-var express = require('express'),
-    Shop = require('../models/Shop'),
-    Admin = require('../models/Admin'),
-    Product = require('../models/Product'),
-    Category = require('../models/Category'),
-    Page = require('../models/Page'),
-    Shop = require('../models/Shop'),
-    Visit = require('../models/Visit'),
-    bcrypt = require('bcryptjs'),
-    mongoose = require('mongoose'),
-    createSlug = require('slug'),
-    template = require('../lib/template.js');
+var express = require('express');
+var Shop = require('../models/Shop');
+var Admin = require('../models/Admin');
+var Product = require('../models/Product');
+var Category = require('../models/Category');
+var Page = require('../models/Page');
+var Shop = require('../models/Shop');
+var Visit = require('../models/Visit');
+var bcrypt = require('bcryptjs');
+var mongoose = require('mongoose');
+var createSlug = require('slug');
+var template = require('../lib/template.js');
+var fs = require('fs');
 
 
 var STATS_MINUTES = 40;
@@ -212,6 +213,21 @@ module.exports = {
       .then(function (shop) {
         return res.json(shop);
       });
+
+  },
+
+  uploadCarouselImage: function(req, res) {
+
+    var position = req.params['position'];
+    var buffer_image = req.body;
+
+    var wstream = fs.createWriteStream('images/carousel/img' + position + '.jpg');
+    wstream.write(buffer_image);
+    wstream.end();
+
+    wstream.on('finish', function() {
+      res.json({result: true});
+    });
 
   }
 

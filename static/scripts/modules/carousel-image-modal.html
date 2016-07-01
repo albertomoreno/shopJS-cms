@@ -1,0 +1,23 @@
+
+<div class="modal-header">
+  <button type="button" class="close" ng-click="$close()">&times;</button>
+  <h4 class="modal-title">Carousel</h4>
+</div>
+
+<div class="modal-body">
+  <form novalidate ng-submit="$ctrl.submit()" name="form" enctype="multipart/form-data">
+    <div class="form-group" ng-class="form.image.$invalid && !form.image.$pristine && 'has-error'">
+      <label for="image">Imagen</label>
+      <carousel-upload ng-model="$ctrl.image"></carousel-upload>
+      <ng-messages for="form.image.$error" ng-hide="form.image.$pristine" class="help-block">
+        <ng-message when="required">Asigna una imagen de producto.</ng-message>
+      </ng-messages>
+    </div>
+
+    <button class="btn btn-primary" ng-disabled="form.$invalid">Guardar</button>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$close()">Cerrar</button>
+</div>

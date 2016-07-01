@@ -40,6 +40,8 @@ module.exports = function(app) {
   app.get('/contacto', home.contact);
   app.post('/contacto', home.sendEmail);
 
+  app.post('/carousel/subir-imagen/:position', admin.uploadCarouselImage);
+
   app.get('/:pageSlug', home.page);
   
   app.get('/', home.home);

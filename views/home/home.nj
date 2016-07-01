@@ -11,22 +11,22 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Imagen 1');"></div>
-      <div class="carousel-caption">
-        <h2>Ejemplo 1</h2>
-      </div>
+      {% if user != null %}
+        <carousel-image position="1"></carousel-image>
+      {% endif %}
+      <img src="/images/carousel/img1.jpg" alt="{{shop.name}}">
     </div>
     <div class="item">
-      <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Imagen 2');"></div>
-      <div class="carousel-caption">
-        <h2>Ejemplo 2</h2>
-      </div>
+      {% if user != null %}
+        <carousel-image position="2"></carousel-image>
+      {% endif %}
+      <img src="/images/carousel/img2.jpg" alt="{{shop.name}}">
     </div>
     <div class="item">
-      <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Imagen 3');"></div>
-      <div class="carousel-caption">
-        <h2>Ejemplo 3</h2>
-      </div>
+      {% if user != null %}
+        <carousel-image position="3"></carousel-image>
+      {% endif %}
+      <img src="/images/carousel/img3.jpg" alt="{{shop.name}}">
     </div>
   </div>
 
