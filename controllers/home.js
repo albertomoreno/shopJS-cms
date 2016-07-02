@@ -8,6 +8,7 @@ var express = require('express'),
     Product = require('../models/Product'),
     Shop = require('../models/Shop'),
     Visit = require('../models/Visit'),
+    Service = require('../models/Service'),
     bcrypt = require('bcryptjs'),
     template = require('../lib/template.js');
 
@@ -27,7 +28,20 @@ module.exports = {
       var recommended_products = [];
       var new_products = [];
       var viewed_products = [];
-      Product.find({published: true, recommended_module: true})
+      var services = [];
+      Service.find({})
+        .then(function (home_services) {
+          services = home_services;
+
+          for (var i = 0; i < 4; i++) {
+            if(!services[i]) {
+              services[i] = {position: i+1};
+            }
+          };
+
+
+          return Product.find({published: true, recommended_module: true})
+        })
         .then(function (products) {
           recommended_products = products.sort(function() {
             return .5 - Math.random();
@@ -54,6 +68,7 @@ module.exports = {
                 recommended_products: recommended_products,
                 new_products: new_products,
                 viewed_products: viewed_products,
+                services: services,
               });
             });
 

@@ -112,62 +112,25 @@
     <div class="col-lg-12">
       <h2 class="page-header">Servicios</h2>
     </div>
-    <div class="col-md-3 col-sm-6">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <span class="fa-stack fa-5x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-check-square-o fa-stack-1x fa-inverse"></i>
-          </span>
-        </div>
-        <div class="panel-body">
-          <h4>Calidad Garantizada</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    {% for service in services %}
+      <div class="col-md-3 col-sm-6 service">
+        {% if user != null %}
+          <update-service service="{{service|dump}}"></update-service>
+        {% endif %}
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <span class="fa-stack fa-5x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa {{service.icon}} fa-stack-1x fa-inverse"></i>
+            </span>
+          </div>
+          <div class="panel-body">
+            <h4>{{service.name}}</h4>
+            <p>{{service.text}}</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <span class="fa-stack fa-5x">
-                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                      <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
-                </span>
-            </div>
-            <div class="panel-body">
-                <h4>Tarjeta Credito</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <span class="fa-stack fa-5x">
-                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                      <i class="fa fa-cc-paypal fa-stack-1x fa-inverse"></i>
-                </span>
-            </div>
-            <div class="panel-body">
-                <h4>Paypal</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <span class="fa-stack fa-5x">
-                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                      <i class="fa fa-mobile fa-stack-1x fa-inverse"></i>
-                </span>
-            </div>
-            <div class="panel-body">
-                <h4>Acceso Movil</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
   </div>
 
   <!-- End Servides -->

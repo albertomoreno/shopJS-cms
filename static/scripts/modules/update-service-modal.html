@@ -1,0 +1,44 @@
+
+<div class="modal-header">
+  <button type="button" class="close" ng-click="$close()">&times;</button>
+  <h4 class="modal-title">Servicio {{$ctrl.data.name}}</h4>
+</div>
+
+<div class="modal-body">
+  <form novalidate ng-submit="$ctrl.submit()" name="form" enctype="multipart/form-data">
+    <div class="form-group" ng-class="form.name.$invalid && !form.name.$pristine && 'has-error'">
+      <label for="service-name">Nombre</label>
+      <input type="text" id="service-name" name="name" class="form-control input-sm" ng-model="$ctrl.data.name" required>
+      <ng-messages for="form.name.$error" ng-hide="form.name.$pristine" class="help-block">
+        <ng-message when="required">Introduce el nombre del servicio.</ng-message>
+      </ng-messages>
+    </div>
+    <div class="form-group" ng-class="form.text.$invalid && !form.text.$pristine && 'has-error'">
+      <label for="service-text">Texto</label>
+      <input type="text" id="service-text" name="text" class="form-control input-sm" ng-model="$ctrl.data.text" required>
+      <ng-messages for="form.text.$error" ng-hide="form.text.$pristine" class="help-block">
+        <ng-message when="required">Introduce el texto del servicio.</ng-message>
+      </ng-messages>
+    </div>
+
+    <div class="form-group" ng-class="form.icon.$invalid && !form.icon.$pristine && 'has-error'">
+      <label for="service-icon">Icono</label>
+      <!-- <select name="icon" id="icon" class="form-control input-sm" ng-model="$ctrl.data.icon" ng-options="icon as icon for icon in $ctrl.icons">
+        </select>
+      <i class="fa {{$ctrl.icon}}"></i> -->
+      <ui-select ng-model="$ctrl.data.icon" theme="bootstrap">
+        <ui-select-match> <i class="fa {{$select.selected}}"></i></ui-select-match>
+        <ui-select-choices repeat="item in $ctrl.icons">
+          <i class="fa {{item}}"></i>
+          <!-- <div ng-bind-html="item.name | highlight: $select.search"></div> -->
+        </ui-select-choices>
+      </ui-select>
+    </div>
+
+    <button class="btn btn-primary" ng-disabled="form.$invalid">Guardar</button>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$close()">Cerrar</button>
+</div>

@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/static/styles/font-awesome.min.css">
   <link rel="stylesheet" href="/static/styles/common.css">
   <link rel="stylesheet" href="/static/styles/nv.d3.css">
+  
+  <link rel="stylesheet" href="/node_modules/ui-select/dist/select.min.css">
 
   {% if shop != null %}
     {% if shop.theme != 'default' %}
@@ -102,6 +104,7 @@
   <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
   <script src="/node_modules/angular-messages/angular-messages.min.js"></script>
   <script src="/node_modules/d3/d3.min.js"></script>
+  <script src="/node_modules/ui-select/dist/select.min.js"></script>
 
   <script src="/static/scripts/nv.d3.js"></script>
   <script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
@@ -122,6 +125,7 @@
   <script src="/static/scripts/shop/update-shop.js"></script>
   <script src="/static/scripts/shop/contact-form.js"></script>
   <script src="/static/scripts/modules/carousel-image.js"></script>
+  <script src="/static/scripts/modules/update-service.js"></script>
   <script src="/static/scripts/reload.js"></script>
   <script src="/static/scripts/main.js"></script>
 

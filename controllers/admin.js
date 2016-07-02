@@ -9,6 +9,7 @@ var Category = require('../models/Category');
 var Page = require('../models/Page');
 var Shop = require('../models/Shop');
 var Visit = require('../models/Visit');
+var Service = require('../models/Service');
 var bcrypt = require('bcryptjs');
 var mongoose = require('mongoose');
 var createSlug = require('slug');
@@ -228,6 +229,35 @@ module.exports = {
     wstream.on('finish', function() {
       res.json({result: true});
     });
+
+  },
+
+  uploadService: function(req, res) {
+
+    var position = req.params['position'];
+
+    var data = req.body;
+
+    Service.findOne({position: position})
+      .then(function (service) {
+
+        if(!service) {
+          service = new Service;
+          service.position = position;
+        }
+
+        service.name = data.name;
+        service.icon = data.icon;
+        service.text = data.text;
+
+        return service.save();
+      })
+      .then(function (service) {
+        return res.json({result: true});
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
 
   }
 

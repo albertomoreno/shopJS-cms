@@ -330,3 +330,20 @@ input[type=checkbox] {
   position: absolute;
   font-size: 30px;
 }
+
+.service > update-service > div {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.service > update-service > div > a {
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  font-size: 25px;
+}
+.ui-select-choices-row {
+  text-align: center;
+  font-size: 20px;
+}

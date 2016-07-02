@@ -41,6 +41,7 @@ module.exports = function(app) {
   app.post('/contacto', home.sendEmail);
 
   app.post('/carousel/subir-imagen/:position', admin.uploadCarouselImage);
+  app.post('/servicio/actualizar/:position', admin.uploadService);
 
   app.get('/:pageSlug', home.page);
   

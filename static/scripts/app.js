@@ -5,4 +5,5 @@ angular.module('shopApp', [
   'ng',
   'ui.bootstrap',
   'ngMessages',
+  'ui.select',
 ]);
