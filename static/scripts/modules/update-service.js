@@ -1,10 +1,11 @@
 'use strict';
 
 
-var ServiceModalCtrl = function($http, $uibModalInstance, service) {
+var ServiceModalCtrl = function($http, $uibModalInstance, service, ReloadShop) {
   this._$http = $http;
   this._$uibModalInstance = $uibModalInstance;
   this._service = service;
+  this._ReloadShop = ReloadShop;
 
   this.icons = [
     'fa-instagram',
@@ -43,7 +44,7 @@ ServiceModalCtrl.prototype.submit = function() {
   this._$http.post('/servicio/actualizar/' + this.data.position, this.data).then(function(res) {
     that._$uibModalInstance.close();
 
-    reloadShop();
+    that._ReloadShop.run();
   });
 
 };

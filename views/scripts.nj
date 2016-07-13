@@ -1,0 +1,17 @@
+
+<script src="/static/scripts/auth/login.js"></script>
+<script src="/static/scripts/categories/categories.js"></script>
+<script src="/static/scripts/shop/shop.js"></script>
+<script src="/static/scripts/products/add-product.js"></script>
+<script src="/static/scripts/products/update-product.js"></script>
+<script src="/static/scripts/pages/add-page.js"></script>
+<script src="/static/scripts/pages/page-content.js"></script>
+<script src="/static/scripts/categories/add-category.js"></script>
+<script src="/static/scripts/categories/update-category.js"></script>
+<script src="/static/scripts/categories/admin-categories.js"></script>
+<script src="/static/scripts/validators/unique.js"></script>
+<script src="/static/scripts/stats/stats-chart.js"></script>
+<script src="/static/scripts/shop/update-shop.js"></script>
+<script src="/static/scripts/shop/contact-form.js"></script>
+<script src="/static/scripts/modules/carousel-image.js"></script>
+<script src="/static/scripts/modules/update-service.js"></script>

@@ -1,10 +1,11 @@
 'use strict';
 
 
-var ModalCtrl = function($http, $uibModalInstance, Categories) {
+var ModalCtrl = function($http, $uibModalInstance, Categories, ReloadShop) {
   this._$http = $http;
   this._$uibModalInstance = $uibModalInstance;
   this._Categories = Categories;
+  this._ReloadShop = ReloadShop;
 
   this.categories = Categories.get();
 
@@ -22,7 +23,7 @@ ModalCtrl.prototype.submit = function() {
 
     that._Categories.add(res.data);
 
-    reloadShop();
+    that._ReloadShop.run();
   });
 };
 

@@ -30,6 +30,7 @@ module.exports = function(app) {
   app.get('/cambiar-tema/:theme', admin.changeTheme);
   
   app.get('/reload-navbar', admin.reloadNavbar);
+  app.get('/reload-scripts', admin.reloadScripts);
   
   app.get('/estadisticas', admin.statistics);
   app.get('/stats/data', admin.statsData);

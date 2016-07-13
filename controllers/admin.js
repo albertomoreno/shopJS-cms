@@ -259,7 +259,11 @@ module.exports = {
         console.log(err);
       });
 
-  }
+  },
+
+  reloadScripts: function(req, res) {
+    template.render(req, res, 'scripts', null, true);
+  },
 
 };
 

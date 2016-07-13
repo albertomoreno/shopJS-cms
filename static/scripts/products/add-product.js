@@ -1,10 +1,11 @@
 'use strict';
 
 
-var ProductModalCtrl = function($http, $uibModalInstance, Categories, $timeout) {
+var ProductModalCtrl = function($http, $uibModalInstance, Categories, $timeout, ReloadShop) {
   this._$http = $http;
   this._$uibModalInstance = $uibModalInstance;
   this._Categories = Categories;
+  this._ReloadShop = ReloadShop;
   this._$timeout = $timeout;
 
   this.categories = Categories.getChildren();
@@ -27,7 +28,7 @@ ProductModalCtrl.prototype.submit = function() {
       if (this.status === 200) {
         that._$timeout(function () {
           that._$uibModalInstance.close();
-          reloadShop();
+          that._ReloadShop.run();     
         });
       }
     };

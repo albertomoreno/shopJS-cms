@@ -1,10 +1,11 @@
 'use strict';
 
 
-var UpdateProductModalCtrl = function($http, $uibModalInstance, Categories, product, $timeout) {
+var UpdateProductModalCtrl = function($http, $uibModalInstance, Categories, product, $timeout, ReloadShop) {
   this._$http = $http;
   this._$uibModalInstance = $uibModalInstance;
   this._Categories = Categories;
+  this._ReloadShop = ReloadShop;
   this._$timeout = $timeout;
 
   this.categories = Categories.getChildren();
@@ -21,7 +22,7 @@ UpdateProductModalCtrl.prototype.submit = function() {
   this._$http.post('/productos/actualizar', this.data).then(function(res) {
 
     that._$uibModalInstance.close();
-    reloadShop();
+    that._ReloadShop.run();
 
   });
 };

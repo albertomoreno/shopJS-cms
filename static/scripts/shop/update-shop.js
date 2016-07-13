@@ -1,10 +1,11 @@
 'use strict';
 
 
-var ShopModalCtrl = function($http, $uibModalInstance, Shop) {
+var ShopModalCtrl = function($http, $uibModalInstance, Shop, ReloadShop) {
   this._$http = $http;
   this._$uibModalInstance = $uibModalInstance;
   this._Shop = Shop;
+  this._ReloadShop = ReloadShop;
 
   this.shop = Shop.get();
 
@@ -19,7 +20,7 @@ ShopModalCtrl.prototype.submit = function() {
 
     that._Shop.update(res.data);
 
-    reloadShop();
+    that._ReloadShop.run();
   });
 };
 
